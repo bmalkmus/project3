@@ -9,7 +9,7 @@ function Navbar () {
 
     function NoToken () {
         return (
-            <li>
+            <li className = "SignInLinks">
             <Link to ="/login">
                 Login
             </Link>
@@ -18,7 +18,7 @@ function Navbar () {
     }
     function HasToken () {
         return (
-            <li>
+            <li className = "SignInLinks">
             <button  onClick = {logOut}>
                 Log out
             </button>
@@ -32,10 +32,14 @@ function Navbar () {
         history.push('./');
     }
     return (
-        <div>
-            <h1> Real Deals</h1>
+        <div className = "nav">
+            <div className = "Brand">
+            <img src = {process.env.PUBLIC_URL + '/Brand.png'}/>
+            {/* <h1> Real Deals</h1> */}
+            </div>
+            <div>
             <ul>
-                <li>
+                <li className = "SignInLinks">
                 <Link to ="/register">
                     Register
                 </Link>
@@ -43,6 +47,7 @@ function Navbar () {
                 {localStorage.usertoken ? <HasToken/> : <NoToken/>}
                 
             </ul>
+            </div>
         </div>
     )
 }
