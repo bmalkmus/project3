@@ -3,6 +3,11 @@ var sequelize = require("../config/config.json");
 
 module.exports = function(sequelize, DataTypes) {
     var List = sequelize.define("List", {
+        user:{
+            type: DataTypes.CHAR,
+            alloNull: false,
+            primaryKey: true
+        },
       title: {
           type: DataTypes.STRING,
           allowNull: false,
