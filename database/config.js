@@ -1,7 +1,9 @@
-{
+require('dotenv').config();
+
+module.exports = {
     "development": {
       "username": "root",
-      "password": "password",
+      "password": `${process.env.SQLPASSWORD}`,
       "database": "realdeals_db",
       "host": "127.0.0.1",
       "dialect": "mysql"
