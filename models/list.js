@@ -1,5 +1,5 @@
 var Sequelize = require("sequelize");
-var sequelize = require("../config/config.json");
+var sequelize = require("../database/config.json");
 
 module.exports = function(sequelize, DataTypes) {
     var List = sequelize.define("List", {
