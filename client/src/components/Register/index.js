@@ -1,4 +1,5 @@
 import React, {useRef} from 'react';
+import './style.css';
 import API from '../utils/API';
 
 
@@ -27,20 +28,20 @@ function Register() {
         <div>
             <div>
                 <h1>Please Register</h1>
-                <form>
-                    <label htmlFor ="firstName">First Name</label>
-                    <input type= "text" ref = {firstRef} placeholder = "John"/>
+                <form className = "regForm">
+                    <label className = "regLabel" htmlFor ="firstName">First Name</label>
+                    <input className = "regInput" id = "firstName" type= "text" ref = {firstRef} placeholder = "John"/>
 
-                    <label htmlFor ="email">Last Name</label>
-                    <input type= "email" ref = {lastRef} placeholder = "Smith"/>
+                    <label className = "regLabel" htmlFor ="lastName">Last Name</label>
+                    <input className = "regInput" id = "lastName" type= "text" ref = {lastRef} placeholder = "Smith"/>
 
-                    <label htmlFor ="email">Email Address</label>
-                    <input type= "email" ref = {emailRef} placeholder = "sample@email.com"/>
+                    <label className = "regLabel" htmlFor ="email">Email Address</label>
+                    <input className = "regInput" id = "email" type= "email" ref = {emailRef} placeholder = "sample@email.com"/>
 
-                    <label htmlFor ="password">Password</label>
-                    <input type= "password" ref = {passwordRef} placeholder = "ThisIsASample"/>
+                    <label className = "regLabel" htmlFor ="password">Password</label>
+                    <input className = "regInput" id = "password" type= "password" ref = {passwordRef} placeholder = "ThisIsASample"/>
 
-                    <button type ="submit" onClick = {Submit}>Register</button>
+                    <button  type ="submit" onClick = {Submit}>Register</button>
                 </form>
             </div>
         </div>

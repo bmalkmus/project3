@@ -34,7 +34,7 @@ function Navbar () {
     return (
         <div className = "nav">
             <div className = "Brand">
-            <img src = {process.env.PUBLIC_URL + '/Brand.png'}/>
+            <img src = {process.env.PUBLIC_URL + '/Brand.png'} alt ="Real Deals"/>
             {/* <h1> Real Deals</h1> */}
             </div>
             <div>

@@ -1,0 +1,8 @@
+.regForm {
+    display: inline-grid;
+    margin: 0 auto;
+}
+
+.regLabel {
+    width: 100%;
+}
