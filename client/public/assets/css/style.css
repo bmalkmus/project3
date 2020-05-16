@@ -1,0 +1,69 @@
+body {
+  color: #777777;
+  font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+  background-image: url("../images/blue-snow.png");
+}
+
+.background-color-teal {
+  background-color: #4aaaa5;
+}
+
+.my_link {
+  text-align: center;
+  color: #777777;
+}
+
+.my_link:hover {
+  text-decoration: underline;
+}
+
+
+#name_tag {
+font-family: 'Georgia', Times, 'Times New Roman', serif;
+font-size: 30px;
+padding: 10px;
+margin: 10px;
+border-color: #cccccc;
+border-width: 0px;
+border-bottom-width: 3px;
+border-style: solid;
+font-weight: bold;
+color: white;
+background-color: #4aaaa5;
+float: left;
+border-width: 0px;
+text-align: center;
+}
+
+
+.photo_text{
+position: relative;
+z-index: 2;
+color:white;
+background-color: #4aaaa5;
+height: 60px;
+text-align: center;
+padding: 10px;
+top: -70px;
+opacity: 0.7;
+filter: alpha; 
+font-size: medium;
+}
+
+.photo_item {
+float: left;
+width: 350px;
+height: 300px;
+padding: 10px;
+margin: 10px;
+}
+
+#my-picture{
+height: 100%;
+width: 100%;
+}
+
+#inputTextarea{
+  height: 200px;
+  width: 100%;
+}
