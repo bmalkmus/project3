@@ -5,6 +5,7 @@ import Landing from './components/Landing';
 import Login from './components/Login';
 import Profile from './components/Profile';
 import Register from './components/Register'
+import Search from './components/Search'
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ function App () {
     <Route exact path ="/register" component ={Register}/>
     <Route exact path ="/login" component ={Login}/>
     <Route exact path ="/profile" component ={Profile}/>
+    <Route exact path="/search" component={Search} />
     </Router>
   )
 }
