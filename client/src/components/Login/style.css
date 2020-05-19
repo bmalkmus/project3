@@ -1,0 +1,20 @@
+.card-log {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#log-head {
+    background: linear-gradient(60deg, rgb(208, 126, 29), rgb(216,167,10));
+    color: rgb(91,86,82);
+
+}
+
+#btn-log {
+    background-color: rgb(208,126,29);
+    color: rgb(91,86,82);
+}
+
+#btn-log:hover {
+    box-shadow: 0 14px 26px -12px rgba(208,126,29, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(208,126,29, 0.2);
+}

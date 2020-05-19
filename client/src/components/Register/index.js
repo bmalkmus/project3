@@ -26,9 +26,9 @@ function Register() {
     }
     return (
         <div>
-            <div>
-                <h1>Please Register</h1>
-                <div>
+            <div className = "card text-center card-reg">
+                <div className = "card-header card-title" id = "reg-head">Please Register</div>
+                <div className = "card-body">
                 <form className = "regForm">
                     <div className = "form-group">
                         <label className = "regLabel" htmlFor ="firstName">First Name</label>
@@ -50,7 +50,7 @@ function Register() {
                         <input className = "regInput form-control" id = "password" type= "password" ref = {passwordRef} placeholder = "ThisIsASample"/>
                     </div>
 
-                    <button  className = "btn" type ="submit" onClick = {Submit}>Register</button>
+                    <button  className = "btn btn-primary" id = "btn-reg" type ="submit" onClick = {Submit}>Register</button>
                 </form>
                 </div>
             </div>

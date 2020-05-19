@@ -1,5 +1,6 @@
 import React, {useRef} from 'react';
 import API from '../utils/API';
+import "./style.css"
 import {useHistory} from "react-router-dom";
 
 
@@ -24,15 +25,20 @@ function Login() {
     }
     return (
         <div>
-            <div>
-                <h1>Please sign in</h1>
-                <form>
-                    <label htmlFor ="email">Email Address</label>
-                    <input type= "email" ref = {emailRef} placeholder = "sample@email.com"/>
+            <div className = "card text-center card-log">
+                <div className = "card-header card-title" id = "log-head">Please sign in</div>
+                <form className = "card-body">
+                    <div className = "form-group">
+                        <label htmlFor ="email">Email Address</label>
+                        <input type= "email" className = "form-control" ref = {emailRef} placeholder = "sample@email.com"/>
+                    </div>
 
-                    <label htmlFor ="password">Password</label>
-                    <input type= "password" ref = {passwordRef} placeholder = "ThisIsASample"/>
-                    <button type ="submit" onClick = {Submit}>Log In</button>
+                    <div className = "form-group">
+                        <label htmlFor ="password">Password</label>
+                        <input type= "password" className = "form-control" ref = {passwordRef} placeholder = "ThisIsASample"/>
+                    </div>
+
+                    <button className = "btn btn-primary" id = "btn-log" type ="submit" onClick = {Submit}>Log In</button>
                 </form>
             </div>
         </div>
