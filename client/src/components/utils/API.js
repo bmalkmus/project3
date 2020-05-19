@@ -17,5 +17,8 @@ export default {
     },
     productSearchKeyword: function(searchText) {
         return axios.get('https://api.barcodespider.com/v1/search?token=842b986ae65f025eead8&s='+encodeURIComponent(searchText))
+    },
+    saveProduct: function (data) {
+        return axios.post("/saved", data)
     }
 }

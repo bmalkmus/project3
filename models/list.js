@@ -53,5 +53,5 @@ module.exports = function(sequelize, DataTypes) {
     });
     return List;
   };
-  List.sync();
-  module.exports = List;
+//   List.sync();
+//   module.exports = List;
