@@ -28,21 +28,31 @@ function Register() {
         <div>
             <div>
                 <h1>Please Register</h1>
+                <div>
                 <form className = "regForm">
-                    <label className = "regLabel" htmlFor ="firstName">First Name</label>
-                    <input className = "regInput" id = "firstName" type= "text" ref = {firstRef} placeholder = "John"/>
+                    <div className = "form-group">
+                        <label className = "regLabel" htmlFor ="firstName">First Name</label>
+                        <input className = "regInput form-control" id = "firstName" type= "text" ref = {firstRef} placeholder = "John"/>
+                    </div>
 
-                    <label className = "regLabel" htmlFor ="lastName">Last Name</label>
-                    <input className = "regInput" id = "lastName" type= "text" ref = {lastRef} placeholder = "Smith"/>
+                    <div className = "form-group">
+                        <label className = "regLabel" htmlFor ="lastName">Last Name</label>
+                        <input className = "regInput form-control" id = "lastName" type= "text" ref = {lastRef} placeholder = "Smith"/>
+                    </div>
 
-                    <label className = "regLabel" htmlFor ="email">Email Address</label>
-                    <input className = "regInput" id = "email" type= "email" ref = {emailRef} placeholder = "sample@email.com"/>
+                    <div className = "form-group">
+                        <label className = "regLabel" htmlFor ="email">Email Address</label>
+                        <input className = "regInput form-control" id = "email" type= "email" ref = {emailRef} placeholder = "sample@email.com"/>
+                    </div>
 
-                    <label className = "regLabel" htmlFor ="password">Password</label>
-                    <input className = "regInput" id = "password" type= "password" ref = {passwordRef} placeholder = "ThisIsASample"/>
+                    <div className = "form-group">
+                        <label className = "regLabel" htmlFor ="password">Password</label>
+                        <input className = "regInput form-control" id = "password" type= "password" ref = {passwordRef} placeholder = "ThisIsASample"/>
+                    </div>
 
-                    <button  type ="submit" onClick = {Submit}>Register</button>
+                    <button  className = "btn" type ="submit" onClick = {Submit}>Register</button>
                 </form>
+                </div>
             </div>
         </div>
     )
