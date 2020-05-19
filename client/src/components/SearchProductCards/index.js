@@ -56,7 +56,10 @@ class SearchProductCards extends React.Component {
       </div>
     )
   }
+  handleSaveProduct = (event) => {
+    console.log(event.target.getAttribute('id'))
 
+  }
   createCards = () => {
     let cols = []
 
@@ -71,9 +74,9 @@ class SearchProductCards extends React.Component {
               </div>
               <div className="col s6">
                 <a href="#"
-                className="btn m-1 dropdown-toggle" data-toggle = "dropdown" onClick={() => this.context.handleSaveProduct(this.context.products[i])}><i>Save</i></a>
+                className="btn m-1 dropdown-toggle" data-toggle = "dropdown"><i>Save</i></a>
                 <ul className = "dropdown-menu" id = {this.context.products[i].item_attributes.title}>
-                {this.createDropDown(this.context.products[i])}
+                <button id ={this.context.products[i].item_attributes.title} onClick={this.handleSaveProduct}>{this.createDropDown(this.context.products[i])}</button>
                 </ul>
               </div>
             </div>
