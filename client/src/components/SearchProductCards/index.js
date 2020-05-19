@@ -4,13 +4,16 @@ import DataAreaContext from "../utils/DataAreaContext";
 class SearchProductCards extends React.Component {
   static contextType = DataAreaContext;
 
+  
+
+
   createPriceTags = (stores) => {
     let rows = []
     for (let i = 0; i < stores.length; i++) {
       let row = (
         <tr key={i}>
           <td>
-            <a href={stores[i].link}
+            <a  target = '_blank' rel='noopener noreferrer' href={stores[i].link}
               className="btn m-1"><i>{stores[i].store_name}</i></a>
           </td>
           <td>
@@ -36,6 +39,24 @@ class SearchProductCards extends React.Component {
     )
   }
 
+  createDropDown = (product) => {
+    console.log(product);
+    let dropdown = [];
+    for (let i = 0; i < product.Stores.length; i++) {
+      let item = (
+            <li className = "dropdown-item" >
+              <button>{product.Stores[i].store_name}</button>
+            </li>
+            )
+      dropdown.push(item)
+    }
+    return (
+      <div>
+      {dropdown}
+      </div>
+    )
+  }
+
   createCards = () => {
     let cols = []
 
@@ -50,7 +71,10 @@ class SearchProductCards extends React.Component {
               </div>
               <div className="col s6">
                 <a href="#"
-                className="btn m-1" onClick={() => this.context.handleSaveBook(this.context.products[i])}><i>Save</i></a>
+                className="btn m-1 dropdown-toggle" data-toggle = "dropdown" onClick={() => this.context.handleSaveProduct(this.context.products[i])}><i>Save</i></a>
+                <ul className = "dropdown-menu" id = {this.context.products[i].item_attributes.title}>
+                {this.createDropDown(this.context.products[i])}
+                </ul>
               </div>
             </div>
           </div>

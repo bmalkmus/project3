@@ -1,5 +1,5 @@
 var Sequelize = require("sequelize");
-var sequelize = require("../database/config.json");
+var sequelize = require("../database/config.js");
 
 module.exports = function(sequelize, DataTypes) {
     var List = sequelize.define("List", {
@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
           type:DataTypes.STRING,
           allowNull: false
       },
-      lnik:{
+      link:{
           type:DataTypes.STRING,
           allowNull: false
       },
