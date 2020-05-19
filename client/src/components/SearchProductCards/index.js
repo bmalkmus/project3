@@ -82,7 +82,7 @@ class SearchProductCards extends React.Component {
       price: event.target.dataset.price,
       shipping: "99.99",
       condition: "broken",
-      datefind: "01/01/1979"
+      datefind: "1979-01-01"
     })
     .catch(err => console.log(err));
 

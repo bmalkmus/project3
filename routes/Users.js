@@ -24,19 +24,21 @@ users.post('/saved', (req, res) => {
         datefind : req.body.datefind
     }
 
-    db.List.findOne({
-        where: [`user = ${req.body.user} and title = ${req.body.title}`]
-
-        
+    db.Lists.findOne({
+        where: {
+            user: req.body.user,
+            title: req.body.title
+                }  
     })
     .then (product => {
         if(!product){
-            db.List.create(savedData)
+            db.Lists.create(savedData)
             .then(product => {
                 res.json({ status: product.title + ' saved'})
             })
             .catch(err => {
-                res.send(err)
+                console.log(err)
+                res.send("there is an error" + err)
             })
         }        
         else {

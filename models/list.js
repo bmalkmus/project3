@@ -1,12 +1,16 @@
-var Sequelize = require("sequelize");
-var sequelize = require("../database/config.js");
+
 
 module.exports = function(sequelize, DataTypes) {
-    var List = sequelize.define("List", {
+    var Lists = sequelize.define("Lists", {
+
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
         user:{
             type: DataTypes.CHAR,
-            alloNull: false,
-            primaryKey: true
+            alloNull: false
         },
       title: {
           type: DataTypes.STRING,
@@ -14,16 +18,16 @@ module.exports = function(sequelize, DataTypes) {
           notEmpty: true
         },
       upc: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.STRING,
           allowNull: false,
-          notEmpty: true
+          notEmpty: true,
       },
       description:{
-          type: DataTypes.TEXT,
+          type: DataTypes.STRING,
           allowNull: true
       },
       images:{
-          type:DataTypes.TEXT,
+          type:DataTypes.STRING,
           allowNull: false
       },
       platform:{
@@ -43,7 +47,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       },
       condition:{
-          type:DataTypes.CHAR,
+          type:DataTypes.STRING,
           allowNull: false
       },
       datefind:{
@@ -51,7 +55,6 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false
       }
     });
-    return List;
+    return Lists;
   };
-//   List.sync();
 //   module.exports = List;
