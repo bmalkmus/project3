@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Header from "../Header";
+import React, {  useState } from "react";
+// import Header from "../Header";
 import Footer from "../Footer";
 import Main from "../Main";
 import SearchProductCards from "../SearchProductCards";
 import API from "../utils/API";
 import DataAreaContext from "../utils/DataAreaContext";
-import jwt_decode from 'jwt-decode';
+// import jwt_decode from 'jwt-decode';
 
 function Search() {
   const [products, setProducts] = useState([])
@@ -13,8 +13,8 @@ function Search() {
     search: "Face Cream",
   })
 
-  const token = localStorage.usertoken;
-  const decoded = jwt_decode(token);
+  // const token = localStorage.usertoken;
+  // const decoded = jwt_decode(token);
 
   // save book to DB
   function handleSaveProduct(product) {
