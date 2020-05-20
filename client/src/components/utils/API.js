@@ -20,5 +20,8 @@ export default {
     },
     saveProduct: function (data) {
         return axios.post("users/saved", data)
+    },
+    UserList: function () {
+        return axios.get("users/saved")
     }
 }

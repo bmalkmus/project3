@@ -18,7 +18,7 @@ function Login() {
 
         API.login(user).then(res => {
             if (res) {
-                history.push('/profile')
+                history.push('/')
                 console.log("login successful")
             }
         })

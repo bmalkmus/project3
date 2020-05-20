@@ -10,17 +10,39 @@ import Search from './components/Search'
 import "./App.css";
 
 function App () {
+  function HasToken () {
+    return (
+      <div>
+        <Switch>
+          <Route exact path ="/" component = {Landing}/>
+          <Route exact path ="/register" component ={Register}/>
+          <Route exact path ="/login" component ={Login}/>
+          <Route exact path ="/profile" component ={Profile}/>
+          <Route exact path="/search" component={Search} />
+        </Switch>
+      </div>
+    )
+  }
+
+  function NoToken () {
+    return (
+    <div>
+      <Switch>
+        <Route exact path ="/" component = {Landing}/>
+        <Route exact path ="/register" component ={Register}/>
+        <Route exact path ="/login" component ={Login}/>
+        <Route exact path ="/profile" component ={Register}/>
+        <Route exact path="/search" component={Register} />
+      </Switch>
+    </div>
+    )
+  }
+
   return (
     <Router>
     <div>
     <Navbar/>
-    <Switch>
-    <Route exact path ="/" component = {Landing}/>
-    <Route exact path ="/register" component ={Register}/>
-    <Route exact path ="/login" component ={Login}/>
-    <Route exact path ="/profile" component ={Profile}/>
-    <Route exact path="/search" component={Search} />
-    </Switch>
+      {localStorage.usertoken ? <HasToken/> : <NoToken/>}
     </div>
     </Router>
   )

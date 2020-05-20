@@ -1,5 +1,7 @@
 import React from 'react';
 import './style.css';
+import Search from "../Search"
+import Register from "../Register"
 
 
 
@@ -14,6 +16,7 @@ function Landing () {
                     
                 </div>
             </div>
+            {localStorage.usertoken ? <Search/> : <Register/>}
         </div>
     )
 }
