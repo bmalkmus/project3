@@ -1,5 +1,7 @@
 import React from "react";
 import DataAreaContext from "../utils/DataAreaContext";
+import jwt_decode from 'jwt-decode';
+import API from '../utils/API'
 
 class SearchProductCards extends React.Component {
   static contextType = DataAreaContext;
@@ -44,8 +46,17 @@ class SearchProductCards extends React.Component {
     let dropdown = [];
     for (let i = 0; i < product.Stores.length; i++) {
       let item = (
-            <li className = "dropdown-item" >
-              <button>{product.Stores[i].store_name}</button>
+            <li key = {i} className = "dropdown-item" 
+                data-title = {product.item_attributes.title}
+                data-upc = {product.item_attributes.upc}
+                data-desc = {product.item_attributes.description}
+                data-image = {product.Stores[i].image}
+                data-platform = {product.Stores[i].store_name}
+                data-link = {product.Stores[i].link}
+                data-price = {product.Stores[i].price}
+                onClick={this.handleSaveProduct}
+              >
+                    {product.Stores[i].store_name}
             </li>
             )
       dropdown.push(item)
@@ -57,7 +68,28 @@ class SearchProductCards extends React.Component {
     )
   }
   handleSaveProduct = (event) => {
-    console.log(event.target.getAttribute('id'))
+    const token = localStorage.usertoken;
+    const decoded = jwt_decode(token);
+
+    API.saveProduct({
+      user: decoded.email,
+      title: event.target.dataset.title,
+      upc: event.target.dataset.upc,
+      decription: event.target.dataset.desc,
+      images: event.target.dataset.image,
+      platform: event.target.dataset.platform,
+      link: event.target.dataset.link,
+      price: event.target.dataset.price,
+      shipping: "99.99",
+      condition: "broken",
+      datefind: "1979-01-01"
+    })
+    .catch(err => console.log(err));
+
+    
+
+
+    
 
   }
   createCards = () => {
@@ -76,7 +108,7 @@ class SearchProductCards extends React.Component {
                 <a href="#"
                 className="btn m-1 dropdown-toggle" data-toggle = "dropdown"><i>Save</i></a>
                 <ul className = "dropdown-menu" id = {this.context.products[i].item_attributes.title}>
-                <button id ={this.context.products[i].item_attributes.title} onClick={this.handleSaveProduct}>{this.createDropDown(this.context.products[i])}</button>
+                <button id ={this.context.products[i].item_attributes.title}>{this.createDropDown(this.context.products[i])}</button>
                 </ul>
               </div>
             </div>
