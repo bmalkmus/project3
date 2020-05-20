@@ -11,6 +11,7 @@ import "./App.css";
 
 function App () {
   function HasToken () {
+    console.log("has token")
     return (
       <div>
         <Switch>
@@ -25,6 +26,7 @@ function App () {
   }
 
   function NoToken () {
+    console.log('no token')
     return (
     <div>
       <Switch>
