@@ -9,6 +9,18 @@ process.env.SECRET_KEY = 'secret'
 
 // NEED TO USE POSTMAN TO SEE IF THIS POSTS.......THEN WORK FROM THERE
 
+users.get('/saved', (req, res) => {
+    db.Lists.findAll({
+    })
+    .then(list => {
+        res.json(list)
+    })
+    .catch(err => {
+        res.send(err)
+    })
+
+});
+
 users.post('/saved', (req, res) => {
     const savedData = {
         user : req.body.user,

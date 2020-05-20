@@ -9,20 +9,40 @@ function Navbar () {
 
     function NoToken () {
         return (
-            <li className = "SignInLinks">
-            <Link to ="/login">
-                Login
-            </Link>
-            </li>
+            <div>
+                <li className = "SignInLinks">
+                    <Link to ="/register">
+                        Register
+                    </Link>
+                </li>
+                <li className = "SignInLinks">
+                <Link to ="/login">
+                    Login
+                </Link>
+                </li>
+            </div>
         )
     }
     function HasToken () {
         return (
-            <li className = "SignInLinks">
-            <button  onClick = {logOut}>
-                Log out
-            </button>
-            </li>
+            <div>
+                <li className = "SignInLinks">
+                    <Link to ="/profile">
+                        Saved List
+                    </Link>
+                </li>
+                <li className = "SignInLinks">
+                    <Link to ="/search">
+                        Search
+                    </Link>
+                </li>
+
+                <li className = "SignInLinks">
+                <button  onClick = {logOut}>
+                    Log out
+                </button>
+                </li>
+            </div>
         )
     }
 
@@ -39,11 +59,6 @@ function Navbar () {
             </div>
             <div>
             <ul>
-                <li className = "SignInLinks">
-                <Link to ="/register">
-                    Register
-                </Link>
-                </li>
                 {localStorage.usertoken ? <HasToken/> : <NoToken/>}
                 
             </ul>
