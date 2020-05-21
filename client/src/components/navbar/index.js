@@ -3,11 +3,12 @@ import {Link, useHistory} from 'react-router-dom';
 import './style.css';
 
 
-function Navbar () {
+function Navbar (props) {
 
     const history = useHistory();
 
     function NoToken () {
+        props.setRoutes(false)
         return (
             <div>
                 <li className = "SignInLinks">
@@ -24,6 +25,7 @@ function Navbar () {
         )
     }
     function HasToken () {
+        props.setRoutes(true)
         return (
             <div>
                 <li className = "SignInLinks">

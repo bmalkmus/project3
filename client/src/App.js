@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/navbar';
 import Landing from './components/Landing';
@@ -10,8 +10,22 @@ import Search from './components/Search'
 import "./App.css";
 
 function App () {
+  const [routes, setRoutes] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.usertoken){
+      setRoutes(true)
+    }
+    else {
+      setRoutes(false)
+    }
+  },)
+
+
   function HasToken () {
     console.log("has token")
+
+    
     return (
       <div>
         <Switch>
@@ -43,8 +57,9 @@ function App () {
   return (
     <Router>
     <div>
-    <Navbar/>
-      {localStorage.usertoken ? <HasToken/> : <NoToken/>}
+    <Navbar
+    setRoutes = {setRoutes}/>
+      {routes ? <HasToken/> : <NoToken/>}
     </div>
     </Router>
   )

@@ -46,7 +46,7 @@ class SearchProductCards extends React.Component {
     let dropdown = [];
     for (let i = 0; i < product.Stores.length; i++) {
       let item = (
-            <li key = {i} className = "dropdown-item" 
+            <li  key = {i} className = "dropdown-item stores" 
                 data-title = {product.item_attributes.title}
                 data-upc = {product.item_attributes.upc}
                 data-desc = {product.item_attributes.description}
