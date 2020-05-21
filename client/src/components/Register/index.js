@@ -31,7 +31,7 @@ function Register() {
                 <div className = "card-body">
                 <form className = "regForm">
                     <div className = "form-group">
-                        <label className = "regLabel" htmlFor ="firstName">First Name</label>
+                        <label className = "regLabel" id = "test" htmlFor ="firstName">First Name</label>
                         <input className = "regInput form-control" id = "firstName" type= "text" ref = {firstRef} placeholder = "John"/>
                     </div>
 

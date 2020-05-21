@@ -60,7 +60,7 @@ function Profile () {
                     key = {product.id}
                     title = {product.title}
                     description = {product.description}
-                    image = {product.image}
+                    image = {product.images}
                     platform = {product.platform}
                     price = {product.price}
                     shipping = {product.shipping}
