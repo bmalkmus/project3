@@ -14,10 +14,10 @@ function NavbarComponent(props) {
 		return (
 			<div className="no-token-div">
 				<li className="SignInLinks">
-					<Link to="/register">Register</Link>
+					<Link className="link-tag" to="/register">Register</Link>
 				</li>
 				<li className="SignInLinks">
-					<Link to="/login">Login</Link>
+					<Link className="link-tag" to="/login">Login</Link>
 				</li>
 			</div>
 		);
@@ -27,10 +27,10 @@ function NavbarComponent(props) {
 		return (
 			<div className="has-token-div">
 				<li className="SignInLinks">
-					<Link to="/profile">Saved List</Link>
+					<Link className="link-tag" to="/profile">Saved List</Link>
 				</li>
 				<li className="SignInLinks">
-					<Link to="/search">Search</Link>
+					<Link className="link-tag" to="/search">Search</Link>
 				</li>
 
 				<li className="SignInLinks">
