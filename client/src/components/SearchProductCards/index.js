@@ -105,7 +105,7 @@ class SearchProductCards extends React.Component {
                 <h4 className="card-title">{this.context.products[i].item_attributes.title}</h4>
               </div>
               <div className="col s6">
-                <a href="#"
+                <a href="#top"
                 className="btn m-1 dropdown-toggle" data-toggle = "dropdown"><i>Save</i></a>
                 <ul className = "dropdown-menu" id = {this.context.products[i].item_attributes.title}>
                 <button id ={this.context.products[i].item_attributes.title}>{this.createDropDown(this.context.products[i])}</button>
@@ -144,7 +144,7 @@ class SearchProductCards extends React.Component {
               name="search"
               placeholder={this.context.formObject.search}
             />
-            <a href="#"
+            <a href="#top"
               className="btn m-2" onClick={this.context.handleSearchSubmit}><i>Search</i>
             </a>
           </div>
