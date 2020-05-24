@@ -56,7 +56,7 @@ function Navbar (props) {
     return (
         <div className = "nav">
             <div className = "Brand">
-            <img src = {process.env.PUBLIC_URL + '/Brand.png'} alt ="Real Deals"/>
+            <img src = {process.env.PUBLIC_URL + '/Brand.png'} width="100" height="100" alt ="Real Deals"/>
             {/* <h1> Real Deals</h1> */}
             </div>
             <div>
