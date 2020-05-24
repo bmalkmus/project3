@@ -1,29 +1,66 @@
-.App {
+* {
+  box-sizing: border-box;
+ }
+ *:before,
+ *:after {
+  box-sizing: border-box;
+ }
+ html,
+ body {
+  height: 100%;
+  position: relative;
+ }
+
+
+ header {
+  padding: 30px 0 30px 0;
+  background: #121212;
+  color: #fff;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+header h1 {
+  display: inline;
+  margin-left: 15px;
+  font-weight: 300;
+  list-style-type: none;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.fas {
+  padding-right: .5em;
 }
 
-.App-intro {
-  font-size: large;
+ul {
+  display: inline;
+  list-style-type: none;
 }
 
-.stores:focus {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
-  background-color: chocolate;
+
+ .main-container {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px; /* height of your footer */
+ }
+ footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+ }
+
+ footer {
+  background: #121212;
+  color: #fff;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+footer h1 {
+  margin-left: 15px;
+  font-weight: 300;
+}
+
+li {
+  display: inline;
+  padding-right: 2em;
 }

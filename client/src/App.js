@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Navbar from './components/navbar';
+import NavbarComponent from './components/NavbarComponent';
 import Landing from './components/Landing';
 import Login from './components/Login';
 import Profile from './components/Profile';
@@ -57,7 +57,7 @@ function App () {
   return (
     <Router>
     <div>
-    <Navbar
+    <NavbarComponent
     setRoutes = {setRoutes}/>
       {routes ? <HasToken/> : <NoToken/>}
     </div>
