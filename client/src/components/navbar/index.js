@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
+import "./style.css";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button'
@@ -13,12 +13,12 @@ function NavbarComponent(props) {
 		return (
 			<div>
 				<li className="SignInLinks">
-					<Link className="link-tag" to="/register">
+					<Link className="link-tag" to="/register" id = "register1">
 						Register
 					</Link>
 				</li>
 				<li className="SignInLinks">
-					<Link className="link-tag" to="/login">
+					<Link className="link-tag" to="/login" id = "login1">
 						Login
 					</Link>
 				</li>
@@ -30,12 +30,12 @@ function NavbarComponent(props) {
 		return (
 			<div>
 				<li className="SignInLinks">
-					<Link className="link-tag" to="/profile">
+					<Link className="link-tag" to="/profile" id = "saved1">
 						Saved List
 					</Link>
 				</li>
 				<li className="SignInLinks">
-					<Link className="link-tag" to="/search">
+					<Link className="link-tag" to="/search" id ="search1">
 						Search
 					</Link>
 				</li>
