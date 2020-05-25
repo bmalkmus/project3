@@ -17,10 +17,10 @@ function Search() {
   // const decoded = jwt_decode(token);
 
   // save book to DB
-  function handleSaveProduct(product) {
-    console.log(product);
-    // TODO: save the product into DB
-  };
+  // function handleSaveProduct(product) {
+  //   console.log(product);
+  //   // TODO: save the product into DB
+  // };
 
   // Handles updating component state when the user types into the input field
   function handleSearchInputChange(event) {
@@ -30,11 +30,11 @@ function Search() {
 
   // search for the query in Google books
   function handleSearchSubmit(event) {
+    console.log("click");
     event.preventDefault();
     console.log(formObject.search);
     API.productSearchKeyword(formObject.search)
       .then(res => {
-        console.log(res);
         const products = res.data.Data;
         setProducts(products);
       }
@@ -47,7 +47,7 @@ function Search() {
       {/* <Header page="search" custom="navbar-expand-lg bg-dark" /> */}
       <Main name='Search'>
         <DataAreaContext.Provider
-            value={{ handleSaveProduct, handleSearchSubmit, handleSearchInputChange, formObject, products }}
+            value={{ handleSearchSubmit, handleSearchInputChange, formObject, products }}
             >
             <SearchProductCards />
         </DataAreaContext.Provider>

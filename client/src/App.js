@@ -10,7 +10,7 @@ import Search from './components/Search';
 import './App.css';
 
 function App() {
-	const [ routes, setRoutes ] = useState(false);
+	const [ routes, setRoutes ] = useState();
 
 	useEffect(() => {
 		if (localStorage.usertoken) {
