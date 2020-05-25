@@ -109,4 +109,19 @@ users.post ('/login', (req, res) => {
     .catch (err => console.log(err))
 })
 
+users.delete("/saved/:id", (req, res) => {
+    db.Lists.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(product => {
+        res.json({ status: product.title + ' deleted'})
+    })
+    .catch(err => {
+        console.log(err)
+        res.send("there is an error" + err)
+    }) 
+})
+
 module.exports = users

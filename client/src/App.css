@@ -27,3 +27,93 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+* {
+  box-sizing: border-box;
+ }
+ *:before,
+ *:after {
+  box-sizing: border-box;
+ }
+ html,
+ body {
+  height: 100%;
+  position: relative;
+ }
+
+
+ header {
+  background: #121212;
+  opacity: 92%;
+  color: #fff;
+  text-align: center;
+}
+
+header h1 {
+  display: inline;
+  margin-left: 15px;
+  font-weight: 300;
+  list-style-type: none;
+}
+
+.fas {
+  padding-right: .5em;
+}
+
+ul {
+  display: inline;
+  list-style-type: none;
+}
+
+
+ .main-container {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px; /* height of your footer */
+ }
+ footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+ }
+
+ footer {
+  background: #121212;
+  color: #fff;
+  text-align: center;
+  opacity: 92%;
+}
+
+footer h1 {
+  margin-left: 15px;
+  font-weight: 300;
+  font-size: 25px;
+}
+
+
+
+li {
+  display: inline;
+  padding-right: 2em;
+}
+
+.link-tag {
+  color: #fff;
+}
+
+
+h5 {
+  padding-top: 2rem;
+  padding-left: 3rem;
+}
+
+.product-search-card {
+  width: 100%;
+}
+
+.search-button {
+  width: 100%;
+}
+

@@ -64,7 +64,9 @@ function Profile () {
                     platform = {product.platform}
                     price = {product.price}
                     shipping = {product.shipping}
-                    condition = {product.condition}/>
+                    condition = {product.condition}
+                    // deleteBTN = {deleteBTN}
+                />
             ))}
         </div>
     )

@@ -1,16 +1,4 @@
-.nav {
-    display: flex;
-}
-
-ul {
-    display: flex;
-}
-
-.Brand{
-    width: 80%;
-}
-
-.SignInLinks {
-    display: block;
-    margin: 10px;
+#register1:hover, #login1:hover, #saved1:hover, #search1:hover {
+    color: orange;
+    text-decoration: none;
 }
