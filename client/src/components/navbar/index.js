@@ -3,8 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-
-import './style.css';
+import Button from 'react-bootstrap/Button'
 
 function NavbarComponent(props) {
 	const history = useHistory();
@@ -12,7 +11,7 @@ function NavbarComponent(props) {
 	function NoToken() {
 		props.setRoutes(false);
 		return (
-			<div className="no-token-div">
+			<div>
 				<li className="SignInLinks">
 					<Link className="link-tag" to="/register">
 						Register
@@ -29,7 +28,7 @@ function NavbarComponent(props) {
 	function HasToken() {
 		props.setRoutes(true);
 		return (
-			<div className="has-token-div">
+			<div>
 				<li className="SignInLinks">
 					<Link className="link-tag" to="/profile">
 						Saved List
@@ -42,7 +41,7 @@ function NavbarComponent(props) {
 				</li>
 
 				<li className="SignInLinks">
-					<button onClick={logOut}>Log out</button>
+					<Button onClick={logOut} variant="light">Log out</Button>
 				</li>
 			</div>
 		);
@@ -54,13 +53,18 @@ function NavbarComponent(props) {
 		history.push('./');
 	}
 	return (
-		<Navbar collapseOnSelect expand="lg" bg="" variant="dark">
+		<Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
 			<Navbar.Brand className="Brand">
-				<img src={process.env.PUBLIC_URL + '/Brand.png'} width="100" height="50" alt="Real Deals" />
+				<img src={process.env.PUBLIC_URL + '/Brand.png'} 
+					width="400" 
+					height="170" 
+					alt="Real Deals" 
+					className="d-inline-block align-top"
+				/>
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-				<Nav className="nav-link-components">
+				<Nav className="nav-link-components ml-auto">
 					<ul>{localStorage.usertoken ? <HasToken /> : <NoToken />}</ul>
 				</Nav>
 			</Navbar.Collapse>
