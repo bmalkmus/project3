@@ -23,11 +23,20 @@ function Profile () {
             setList(res.data)
         })
 
+    };
+
+    function deleteBTN (event) {
+        const id = event.target.dataset.id
+        API.DeleteItem(id);
+        API.UserList()
+        .then(res => {
+            setList(res.data)
+        })
     }
 
     useEffect(() =>{
         getInfo()
-    }, [])
+    }, [list])
 
     
     return (
@@ -58,6 +67,7 @@ function Profile () {
             {list.filter(product => product.user === decoded.email).map(product => (
                 <SavedCard 
                     key = {product.id}
+                    id = {product.id}
                     title = {product.title}
                     description = {product.description}
                     image = {product.images}
@@ -65,7 +75,7 @@ function Profile () {
                     price = {product.price}
                     shipping = {product.shipping}
                     condition = {product.condition}
-                    // deleteBTN = {deleteBTN}
+                    deleteBTN = {deleteBTN}
                 />
             ))}
         </div>

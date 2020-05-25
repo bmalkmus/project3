@@ -28,6 +28,7 @@ function SavedCard (props) {
                             <th>Price</th>
                             <th>Shipping</th>
                             <th>Condition</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,6 +39,7 @@ function SavedCard (props) {
                             <td>${props.price}</td>
                             <td>${props.shipping}</td>
                             <td>{props.condition}</td>
+                            <td><button data-id = {props.id} onClick = {props.deleteBTN}>Remove</button></td>
                         </tr>
                     </tbody>
                 </table>
