@@ -47,30 +47,6 @@ class SearchProductCards extends React.Component {
 		);
 	};
 
-	createDropDown = (product) => {
-		console.log(product);
-		let dropdown = [];
-		for (let i = 0; i < product.Stores.length; i++) {
-			let item = (
-				<li
-					key={i}
-					className="dropdown-item stores"
-					data-title={product.item_attributes.title}
-					data-upc={product.item_attributes.upc}
-					data-desc={product.item_attributes.description}
-					data-image={product.Stores[i].image}
-					data-platform={product.Stores[i].store_name}
-					data-link={product.Stores[i].link}
-					data-price={product.Stores[i].price}
-					onClick={this.handleSaveProduct}
-				>
-					{product.Stores[i].store_name}
-				</li>
-			);
-			dropdown.push(item);
-		}
-		return <div>{dropdown}</div>;
-	};
 	handleSaveProduct = (event) => {
 		const token = localStorage.usertoken;
 		const decoded = jwt_decode(token);
@@ -94,6 +70,8 @@ class SearchProductCards extends React.Component {
 
 		// Outer loop to create parent
 		for (let i = 0; i < this.context.products.length; i++) {
+		
+
 			let card = (
 				<Container>
 					<Card className="card mx-auto p-3 mt-5" key={i}>
@@ -108,12 +86,10 @@ class SearchProductCards extends React.Component {
 							<Col>
 								<Card.Body>
 									<Card.Title>
-										<h4 className="card-title">{this.context.products[i].item_attributes.title}</h4>
+										{this.context.products[i].item_attributes.title}
 									</Card.Title>
-									<Card.Text>
-										<p className="category">
+									<Card.Text className="category">
 											{this.context.products[i].item_attributes.description}
-										</p>
 									</Card.Text>
 								</Card.Body>
 							</Col>
@@ -121,7 +97,7 @@ class SearchProductCards extends React.Component {
 								<Row>
 									<Dropdown>
 										<Dropdown.Toggle
-											href="#top"
+											// href="#top"
 											className="btn m-1 dropdown-toggle"
 											variant="success"
 											id="dropdown-basic"
@@ -133,9 +109,24 @@ class SearchProductCards extends React.Component {
 											className="dropdown-menu"
 											id={this.context.products[i].item_attributes.title}
 										>
-											<Dropdown.Item id={this.context.products[i].item_attributes.title}>
-												{this.createDropDown(this.context.products[i])}
-											</Dropdown.Item>
+											{this.context.products[i].Stores.map(store => {
+												return (
+												<Dropdown.Item
+													key={store}
+													className="dropdown-item stores"
+													data-title={this.context.products[i].item_attributes.title}
+													data-upc={this.context.products[i].item_attributes.upc}
+													data-desc={this.context.products[i].item_attributes.description}
+													data-image={store.image}
+													data-platform={store.store_name}
+													data-link={store.link}
+													data-price={store.price}
+													onClick={this.handleSaveProduct}
+												>
+														{store.store_name}
+												</Dropdown.Item>
+												)
+											})}
 										</Dropdown.Menu>
 									</Dropdown>
 								</Row>
