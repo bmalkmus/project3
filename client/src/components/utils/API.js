@@ -23,5 +23,9 @@ export default {
     },
     UserList: function () {
         return axios.get("users/saved")
+    },
+    DeleteItem: function (id) {
+        return axios.delete("users/saved/" + id)
     }
+
 }
