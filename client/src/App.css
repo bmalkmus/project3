@@ -102,3 +102,18 @@ li {
 .link-tag {
   color: #fff;
 }
+
+
+h5 {
+  padding-top: 2rem;
+  padding-left: 3rem;
+}
+
+.product-search-card {
+  width: 100%;
+}
+
+.search-button {
+  width: 100%;
+}
+

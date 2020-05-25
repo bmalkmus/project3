@@ -55,9 +55,7 @@ function App() {
 		<Router>
 			<div className="main-container">
 				<header>
-					<div id="overlay">
-						<NavbarComponent setRoutes={setRoutes} />
-					</div>
+					<NavbarComponent setRoutes={setRoutes} />
 				</header>
 				{routes ? <HasToken /> : <NoToken />}
 			</div>
