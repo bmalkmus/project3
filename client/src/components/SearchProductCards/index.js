@@ -140,7 +140,7 @@ class SearchProductCards extends React.Component {
 					<Card className="product-search-card">
 						<div className="input-field col s12">
 							<label className="m-0" htmlFor="search">
-								<h5 class="card-title">Product Search</h5>
+								<h5 className="card-title">Product Search</h5>
 							</label>
 							<Form className="search-form-control p-5">
 								<FormControl

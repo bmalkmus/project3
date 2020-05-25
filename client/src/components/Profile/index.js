@@ -35,8 +35,20 @@ function Profile () {
     }
 
     useEffect(() =>{
-        getInfo()
-    }, [list])
+        console.log("mounted")
+        getInfo();
+
+        return () => {
+            console.log("component unmounted")
+        //     API.UserList()
+        // .then(res => {
+        //     setList(res.data)
+        // })
+        }
+
+    },[]);
+
+  
 
     
     return (
