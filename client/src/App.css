@@ -106,7 +106,6 @@ li {
 
 h5 {
   padding-top: 2rem;
-  padding-left: 3rem;
 }
 
 .product-search-card {
@@ -115,5 +114,11 @@ h5 {
 
 .search-button {
   width: 100%;
+}
+
+.card {
+  width: 100%;
+  text-align: center;
+  align-self: center;
 }
 
