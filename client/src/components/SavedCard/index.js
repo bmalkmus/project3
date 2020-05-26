@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Table from 'react-bootstrap/Table';
 
 function SavedCard(props) {
 	return (
@@ -21,36 +22,34 @@ function SavedCard(props) {
 							<Row>
 								<p className="category">{props.description}</p>
 							</Row>
-							<Row>
-								<table className="responsive-table highlight">
-									<Col className="md-6">
-										<thead>
-											<tr>
-												<th>Website</th>
-												<th>Price</th>
-												<th>Shipping</th>
-												<th>Condition</th>
-												<th />
-											</tr>
-										</thead>
-									</Col>
-									<Col className="md-6">
-										<tbody>
-											<tr>
-												<td>{props.platform}</td>
-												<td>${props.price}</td>
-												<td>${props.shipping}</td>
-												<td>{props.condition}</td>
-												<td>
-													<button data-id={props.id} onClick={props.deleteBTN}>
-														Remove
-													</button>
-												</td>
-											</tr>
-										</tbody>
-									</Col>
-								</table>
-							</Row>
+							
+								<Table>
+									<thead>
+										<tr>
+											<th>Website</th>
+											<th>Price</th>
+											<th>Shipping</th>
+											<th>Condition</th>
+											<th />
+										</tr>
+									</thead>
+								
+								
+									<tbody>
+										<tr>
+											<td>{props.platform}</td>
+											<td>${props.price}</td>
+											<td>${props.shipping}</td>
+											<td>{props.condition}</td>
+											<td>
+												<button data-id={props.id} onClick={props.deleteBTN}>
+													Remove
+												</button>
+											</td>
+										</tr>
+									</tbody>	
+								</Table>
+							
 						</Card.Body>
 					</Col>
 				</Row>

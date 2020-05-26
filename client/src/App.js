@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavbarComponent from './components/navbar';
 import Landing from './components/Landing';
@@ -12,16 +12,15 @@ import './App.css';
 function App() {
 	const [ routes, setRoutes ] = useState();
 
-	useEffect(() => {
-		if (localStorage.usertoken) {
-			setRoutes(true);
-		} else {
-			setRoutes(false);
-		}
-	});
+	// useEffect(() => {
+	// 	if (localStorage.usertoken) {
+	// 		setRoutes(true);
+	// 	} else {
+	// 		setRoutes(false);
+	// 	}
+	// },[routes]);
 
 	function HasToken() {
-		console.log('has token');
 
 		return (
 			<div>
@@ -37,7 +36,6 @@ function App() {
 	}
 
 	function NoToken() {
-		console.log('no token');
 		return (
 			<div>
 				<Switch>
@@ -55,7 +53,7 @@ function App() {
 		<Router>
 			<div className="main-container">
 				<header>
-					<NavbarComponent setRoutes={setRoutes} />
+					<NavbarComponent setRoutes={setRoutes} routes = {routes} />
 				</header>
 				{routes ? <HasToken /> : <NoToken />}
 			</div>

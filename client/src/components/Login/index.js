@@ -1,5 +1,8 @@
 import React, {useRef} from 'react';
 import API from '../utils/API';
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import "./style.css"
 import {useHistory} from "react-router-dom";
 
@@ -25,22 +28,22 @@ function Login() {
     }
     return (
         <div>
-            <div className = "card text-center card-log">
-                <div className = "card-header card-title" id = "log-head">Please sign in</div>
-                <form className = "card-body">
-                    <div className = "form-group">
-                        <label htmlFor ="email">Email Address</label>
-                        <input type= "email" className = "form-control" ref = {emailRef} placeholder = "sample@email.com"/>
-                    </div>
-
-                    <div className = "form-group">
-                        <label htmlFor ="password">Password</label>
-                        <input type= "password" className = "form-control" ref = {passwordRef} placeholder = "ThisIsASample"/>
-                    </div>
-
-                    <button className = "btn btn-primary" id = "btn-log" type ="submit" onClick = {Submit}>Log In</button>
-                </form>
-            </div>
+            <Card className = "text-center" id = "card-log">
+                <Card.Header id = "log-head">Please Sign In</Card.Header>
+                <Card.Body>
+                    <Form>
+                        <Form.Group className = "text-left" id = "logEmail">
+                            <Form.Label>Email Address</Form.Label>
+                            <Form.Control id = "log-email" type = "email" ref = {emailRef}/> 
+                        </Form.Group>
+                        <Form.Group className = "text-left" id = "logPass">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type = "password" id = "log-pass" ref = {passwordRef}/> 
+                        </Form.Group>
+                        <Button id = "btn-log" type = "submit" onClick = {Submit}>Login</Button>
+                    </Form>
+                </Card.Body>
+            </Card>
         </div>
     )
 }
