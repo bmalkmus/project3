@@ -1,23 +1,48 @@
-.card-reg{
+#card-reg{
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
+    margin-top: 15px;
+    color: rgb(69,74,80);
+    background-color: lightgrey;
+    box-shadow: lightslategray 4px 4px 5px, lightsteelblue 4px 4px 20px, black 4px 4px 10px;
+}
+
+
+
+#RegFirst:focus-within, #RegLast:focus-within, #RegEmail:focus-within, #RegPass:focus-within {
+    color: rgb(208,126,29);
+}
+
+#firstForm, #lastForm, #emailForm, #passForm {
+    border: none;
+    border-bottom: rgb(69,74,80) solid 2px;
+    border-radius: 0px;
+    background-color: lightgrey;
+}
+
+#firstForm:focus, #lastForm:focus, #emailForm:focus, #passForm:focus {
+    box-shadow: none;
+    border: none;
+    background-image: linear-gradient(to top, rgb(208,126,29) 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
 }
 
 #reg-head{
     background: linear-gradient(60deg, rgb(216,167,10), rgb(208,126,29));
     color: rgb(91,86,82);
+    font-weight: bolder;
+    box-shadow: 0px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
 }
 
 #btn-reg {
     background-color: rgb(208,126,29);
     color: rgb(91,86,82);
+    border-color: rgb(216, 167, 10);
+    font-weight: bold;
 }
 
 #btn-reg:hover{
     box-shadow: 0 14px 26px -12px rgba(208,126,29, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(208,126,29, 0.2);
 }
 
-/* .form-control, .is-focused .form-control {
-    background-image: linear-gradient(to top, rgb(208,126,29) 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
-} */
+

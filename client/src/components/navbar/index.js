@@ -9,7 +9,10 @@ function NavbarComponent(props) {
 	const history = useHistory();
 
 	function NoToken() {
-		props.setRoutes(false);
+		if (props.routes){
+			props.setRoutes(false);
+
+		}
 		return (
 			<div>
 				<li className="SignInLinks">
@@ -26,7 +29,9 @@ function NavbarComponent(props) {
 		);
 	}
 	function HasToken() {
-		props.setRoutes(true);
+		if (!props.routes){
+			props.setRoutes(true);
+		}
 		return (
 			<div>
 				<li className="SignInLinks">

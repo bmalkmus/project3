@@ -55,7 +55,7 @@ class SearchProductCards extends React.Component {
 			user: decoded.email,
 			title: event.target.dataset.title,
 			upc: event.target.dataset.upc,
-			decription: event.target.dataset.desc,
+			description: event.target.dataset.description,
 			images: event.target.dataset.image,
 			platform: event.target.dataset.platform,
 			link: event.target.dataset.link,
@@ -73,8 +73,8 @@ class SearchProductCards extends React.Component {
 		
 
 			let card = (
-				<Container>
-					<Card className="card mx-auto p-3 mt-5" key={i}>
+				<Container key = {"container" + i}>
+					<Card className="card mx-auto p-3 mt-5" key={"search" + i}>
 						<Row className="no-gutters">
 							<Col className="md-4">
 								<img
@@ -112,11 +112,11 @@ class SearchProductCards extends React.Component {
 											{this.context.products[i].Stores.map(store => {
 												return (
 												<Dropdown.Item
-													key={store}
+													key={store + i}
 													className="dropdown-item stores"
 													data-title={this.context.products[i].item_attributes.title}
 													data-upc={this.context.products[i].item_attributes.upc}
-													data-desc={this.context.products[i].item_attributes.description}
+													data-description={this.context.products[i].item_attributes.description}
 													data-image={store.image}
 													data-platform={store.store_name}
 													data-link={store.link}
