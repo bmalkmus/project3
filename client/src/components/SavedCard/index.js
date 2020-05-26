@@ -1,50 +1,61 @@
 import React from 'react';
 
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-function SavedCard (props) {
-    return (
-        <div className = 'card' key = {props.id}>
-            <div className ='card-header'>
-                <div className = "row">
-                    <div className = 'col s6'>
-                        <h4 className = 'card-title'>{props.title}</h4>
-                    </div>
-                </div>
-            </div>
-            <div className = 'card-body'>
-                <div className = "row">
-                    <div className = 'col s8'>
-                        <p className = "category">{props.description}</p>
-                    </div>
-                    <div className="col s4">
-                <img src={props.image} 
-                className="img-fluid" alt="Responsive"/>
-              </div>
-                </div>
-                <table className='responsive-table highlight'>
-                    <thead>
-                        <tr>
-                            <th>Website</th>
-                            <th>Price</th>
-                            <th>Shipping</th>
-                            <th>Condition</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                {props.platform}
-                            </td>
-                            <td>${props.price}</td>
-                            <td>${props.shipping}</td>
-                            <td>{props.condition}</td>
-                            <td><button data-id = {props.id} onClick = {props.deleteBTN}>Remove</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    )
+function SavedCard(props) {
+	return (
+		<Container>
+			<Card className="card mx-auto p-3 mt-5" key={props.id}>
+				<Row className="no-gutters">
+					<Col className="md-4">
+						<img src={props.image} className="img-fluid" alt="Responsive" />
+					</Col>
+					<Col className="md-8">
+						<Card.Body>
+							<Card.Title>
+								<h4 className="card-title">{props.title}</h4>
+							</Card.Title>
+							<Row>
+								<p className="category">{props.description}</p>
+							</Row>
+							<Row>
+								<table className="responsive-table highlight">
+									<Col className="md-6">
+										<thead>
+											<tr>
+												<th>Website</th>
+												<th>Price</th>
+												<th>Shipping</th>
+												<th>Condition</th>
+												<th />
+											</tr>
+										</thead>
+									</Col>
+									<Col className="md-6">
+										<tbody>
+											<tr>
+												<td>{props.platform}</td>
+												<td>${props.price}</td>
+												<td>${props.shipping}</td>
+												<td>{props.condition}</td>
+												<td>
+													<button data-id={props.id} onClick={props.deleteBTN}>
+														Remove
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</Col>
+								</table>
+							</Row>
+						</Card.Body>
+					</Col>
+				</Row>
+			</Card>
+		</Container>
+	);
 }
-export default SavedCard
+export default SavedCard;
