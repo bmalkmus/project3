@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
-import API from '../utils/API';
-import SavedCard from '../SavedCard';
+import SavedContainer from '../SavedContainer';
 
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 
 function Profile() {
-	const [ first, setFirst ] = useState();
-	const [ last, setLast ] = useState();
-	const [ email, setEmail ] = useState();
-	const [ list, setList ] = useState([]);
+	const [ First, setFirst ] = useState("");
+	const [ Last, setLast ] = useState("");
+	const [ Email, setEmail ] = useState("");
 
 	const token = localStorage.usertoken;
 	const decoded = jwt_decode(token);
@@ -21,39 +19,13 @@ function Profile() {
 		setLast(decoded.last_name);
 		setEmail(decoded.email);
 
-		API.UserList().then((res) => {
-			setList(res.data);
-		});
-	}
+	};
 
-	function deleteBTN(event) {
-		const id = event.target.dataset.id;
-		API.DeleteItem(id);
-		API.UserList().then((res) => {
-			setList(res.data);
-		});
-	}
-
-	// useEffect(
-	// 	() => {
-	// 		getInfo();
-	// 	},
-	// 	[ list ]
-	// );
-
-	useEffect(() =>{
-        console.log("mounted")
-        getInfo();
-
-        return () => {
-            console.log("component unmounted")
-        //     API.UserList()
-        // .then(res => {
-        //     setList(res.data)
-        // })
-        }
-
-    },[]);
+	useEffect(
+		() => {
+			console.log("got info")
+			getInfo();	
+		},[]);
 
 	return (
 		<div>
@@ -68,15 +40,15 @@ function Profile() {
 								<tbody>
 									<tr>
 										<td>First Name</td>
-										<td>{first}</td>
+										<td>{First}</td>
 									</tr>
 									<tr>
 										<td>Last Name</td>
-										<td>{last}</td>
+										<td>{Last}</td>
 									</tr>
 									<tr>
 										<td>Email Address</td>
-										<td>{email}</td>
+										<td>{Email}</td>
 									</tr>
 								</tbody>
 							</table>
@@ -91,22 +63,7 @@ function Profile() {
                     </Card.Title>
                 </Card>
             </Container>
-			{list
-				.filter((product) => product.user === decoded.email)
-				.map((product) => (
-					<SavedCard
-						key={product.id}
-						id={product.id}
-						title={product.title}
-						description={product.description}
-						image={product.images}
-						platform={product.platform}
-						price={product.price}
-						shipping={product.shipping}
-						condition={product.condition}
-						deleteBTN={deleteBTN}
-					/>
-				))}
+			<SavedContainer/>
 		</div>
 	);
 }
