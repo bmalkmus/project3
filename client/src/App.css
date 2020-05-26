@@ -44,7 +44,6 @@
 
  header {
   background: #121212;
-  opacity: 92%;
   color: #fff;
   text-align: center;
 }
@@ -83,7 +82,6 @@ ul {
   background: #121212;
   color: #fff;
   text-align: center;
-  opacity: 92%;
 }
 
 footer h1 {
@@ -120,5 +118,11 @@ h5 {
   width: 100%;
   text-align: center;
   align-self: center;
+}
+
+.table {
+
+  margin-right: 2rem;
+  align-content: center;
 }
 
