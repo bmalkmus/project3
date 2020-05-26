@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 
 function SavedCard(props) {
 	return (
@@ -23,13 +24,13 @@ function SavedCard(props) {
 								<p className="category">{props.description}</p>
 							</Row>
 							
-								<Table>
+								<Table size="sm">
 									<thead>
 										<tr>
 											<th>Website</th>
 											<th>Price</th>
-											<th>Shipping</th>
-											<th>Condition</th>
+											{/* <th>Shipping</th>
+											<th>Condition</th> */}
 											<th />
 										</tr>
 									</thead>
@@ -39,17 +40,12 @@ function SavedCard(props) {
 										<tr>
 											<td>{props.platform}</td>
 											<td>${props.price}</td>
-											<td>${props.shipping}</td>
-											<td>{props.condition}</td>
-											<td>
-												<button data-id={props.id} onClick={props.deleteBTN}>
-													Remove
-												</button>
-											</td>
+											{/* <td>${props.shipping}</td>
+											<td>{props.condition}</td> */}
 										</tr>
 									</tbody>	
 								</Table>
-							
+								<Button data-id={props.id} onClick={props.deleteBTN} variant="dark">Remove</Button>			
 						</Card.Body>
 					</Col>
 				</Row>
