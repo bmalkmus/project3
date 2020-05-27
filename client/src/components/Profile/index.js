@@ -27,6 +27,9 @@ function Profile({Saved, getList, total}) {
 			getInfo();	
 		},[]);
 
+	const Total = total * 1.10
+	const RealTotal = Total.toFixed(2)
+
 	return (
 		<div>
 			<Container>
@@ -57,7 +60,7 @@ function Profile({Saved, getList, total}) {
 											</tr>
 											<tr>
 												<td>Total </td>
-												<td>${total * 1.10}</td>
+												<td>${RealTotal}</td>
 											</tr>
 										</tbody>
 									</Table>
