@@ -2,3 +2,16 @@
     color: orange;
     text-decoration: none;
 }
+
+#navToggle, #navToggle:active, #navToggle:focus, #navToggle:visited {
+    background-color: rgb(255,169,5);
+    color: black;
+    border-color:rgb(255,212,70);
+    outline: none;
+}
+
+
+
+#navToggle:hover {
+    box-shadow: lightgrey 4px 4px 20px;
+}

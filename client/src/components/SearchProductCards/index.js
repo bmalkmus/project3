@@ -2,7 +2,6 @@ import React from 'react';
 import DataAreaContext from '../utils/DataAreaContext';
 import jwt_decode from 'jwt-decode';
 import API from '../utils/API';
-
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -102,8 +101,8 @@ class SearchProductCards extends React.Component {
 									<Dropdown>
 										<Dropdown.Toggle
 											// href="#top"
-											className="btn m-1 dropdown-toggle"
-											variant="success"
+											className="btn btn-toggle m-1 dropdown-toggle"
+											variant="warning"
 											id="dropdown-basic"
 										>
 											Save
@@ -115,7 +114,7 @@ class SearchProductCards extends React.Component {
 										>
 											{this.context.products[i].Stores.map(store => {
 												return (
-												<Dropdown.Item
+												<Dropdown.Item variant = "dark"
 													key={store.store_name + i}
 													className="dropdown-item stores"
 													data-title={this.context.products[i].item_attributes.title}

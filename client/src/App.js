@@ -65,7 +65,6 @@ function App() {
 
 				<li className="SignInLinks">
 					<Link onClick = {logOut} className = "link-tag" to= "/" id = "logout">Log Out</Link>
-					{/* <Button onClick={logOut} variant="light">Log out</Button> */}
 				</li>
 			</div>
 		);
@@ -96,7 +95,14 @@ function App() {
 			setSaved(res.data);
 		})
 		.catch(err => console.log(err))
-    };
+	};
+	
+	
+    useEffect(() => {
+		if (localStorage.usertoken){
+			setRoutes(true)
+		}
+	}, []);	
 
     useEffect(() => {
 		getList();
