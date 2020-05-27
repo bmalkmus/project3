@@ -1,165 +1,198 @@
 .App {
-  text-align: center;
-  background-color: #e1e2e1;
+	text-align: center;
+	background-color: #e1e2e1;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+	background-color: #222;
+	height: 150px;
+	padding: 20px;
+	color: white;
 }
 
 .App-intro {
-  font-size: large;
+	font-size: large;
 }
 
 .stores:focus {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
-  background-color: chocolate;
+	box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+	background-color: chocolate;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
+
+/* General Styling */
 
 * {
-  box-sizing: border-box;
- }
- *:before,
- *:after {
-  box-sizing: border-box;
- }
- html,
- body {
-  height: 100%;
-  position: relative;
- }
-
- .main-container {
-  background: linear-gradient(180deg, #bdbdbd, #fff);
- }
-
- header {
-  background: #121212;
-  color: #fff;
-  text-align: center;
-  box-shadow: 0px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+}
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+	position: relative;
 }
 
-header h1 {
-  display: inline;
-  margin-left: 15px;
-  font-weight: 300;
-  list-style-type: none;
+.main-container {
+	background: linear-gradient(180deg, #bdbdbd, #fff);
 }
 
-.fas {
-  padding-right: .5em;
+.main-container {
+	min-height: 100vh; /* will cover the 100% of viewport */
+	overflow: hidden;
+	display: block;
+	position: relative;
+	padding-bottom: 100px; /* height of your footer */
 }
-
-ul {
-  display: inline;
-  list-style-type: none;
-}
-
-
- .main-container {
-  min-height: 100vh; /* will cover the 100% of viewport */
-  overflow: hidden;
-  display: block;
-  position: relative;
-  padding-bottom: 100px; /* height of your footer */
- }
- footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
- }
-
- footer {
-  background: #121212;
-  color: #fff;
-  text-align: center;
-  box-shadow: 5px 8px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
-}
-
-footer h1 {
-  margin-left: 15px;
-  font-weight: 300;
-  font-size: 25px;
-}
-
-
 
 li {
-  display: inline;
-  padding-right: 2em;
+	display: inline;
+	padding-right: 2em;
 }
 
 .link-tag {
-  color: #fff;
+	color: #fff;
 }
-
 
 h5 {
-  padding-top: 2rem;
+	padding-top: 2rem;
 }
 
-.product-search-card {
-  width: 100%;
+/* General Styling */
+
+/* Navbar Styling */
+
+header {
+	background: #121212;
+	color: #fff;
+	text-align: center;
+	box-shadow: 0px 5px 8px rgb(69, 74, 80), 0px 3px 3px rgba(0, 0, 0, 0.12);
 }
 
-.search-button {
-  width: 100%;
-}
-
-.card {
-  width: 100%;
-  text-align: center;
-  align-self: center;
-  box-shadow: 0px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
-}
-
-.table {
-
-  margin-right: 2rem;
-  align-content: center;
-}
-
-.welcome-container {
-  background: linear-gradient(60deg, #ffa500, #ffd64a);
-  color: #000000;
-  box-shadow: 0px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
-}
-
-.profile-title {
-  background: linear-gradient(60deg, #ffa500, #ffd64a);
-  color: #000000;
-  box-shadow: 0px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
-}
-
-.btn {
-  background: #ffa500 !important;
-  color: #000000 !important;
-  border-color: rgb(216, 167, 10) !important;
-  font-weight: 300 !important;
-}
-
-.btn:hover{
-  box-shadow: 0 14px 26px -12px rgba(208,126,29, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(208,126,29, 0.2) !important;
-}
-
-.btn-dropdown {
-  align-content: center;
+header h1 {
+	display: inline;
+	margin-left: 15px;
+	font-weight: 300;
+	list-style-type: none;
 }
 
 .notification {
-  margin-left: 0.56em;
+	margin-left: 0.56em;
 }
+
+.fas {
+	padding-right: .5em;
+}
+
+ul {
+	display: inline;
+	list-style-type: none;
+}
+
+#navbar-header {
+  opacity: 92%;
+}
+
+/* Navbar Styling */
+
+/* Footer Styling */
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+footer {
+	background: #121212;
+	color: #fff;
+	text-align: center;
+	box-shadow: 5px 8px 5px 8px rgb(69, 74, 80), 0px 3px 3px rgba(0, 0, 0, 0.12);
+}
+
+footer h1 {
+	margin-left: 15px;
+	font-weight: 300;
+	font-size: 25px;
+}
+
+/* Footer Styling */
+
+/* Card Styling */
+
+.product-search-card {
+	width: 100%;
+}
+
+.search-button {
+	width: 100%;
+}
+
+.card {
+	width: 100%;
+	text-align: center;
+	align-self: center;
+	box-shadow: 0px 5px 8px rgb(69, 74, 80), 0px 3px 3px rgba(0, 0, 0, 0.12);
+}
+
+.table {
+	margin-right: 2rem;
+	align-content: center;
+}
+
+/* Card Styling */
+
+/* Welcome Container Styling */
+
+.welcome-container {
+	background: linear-gradient(60deg, #ffa500, #ffd64a);
+	color: #000000;
+	box-shadow: 0px 5px 8px rgb(69, 74, 80), 0px 3px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* Welcome Container Styling */
+
+/* Profile Styling */
+
+.profile-title {
+	background: linear-gradient(60deg, #ffa500, #ffd64a);
+	color: #000000;
+	box-shadow: 0px 5px 8px rgb(69, 74, 80), 0px 3px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* Profile Styling */
+
+/* Button Styling */
+
+.btn {
+	background: #ffa500 !important;
+	color: #000000 !important;
+	border-color: rgb(216, 167, 10) !important;
+	font-weight: 300 !important;
+}
+
+.btn:hover {
+	box-shadow: 0 14px 26px -12px rgba(208, 126, 29, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12),
+		0 8px 10px -5px rgba(208, 126, 29, 0.2) !important;
+}
+
+.btn-dropdown {
+	align-content: center;
+}
+
+/* Button Styling */
