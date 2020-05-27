@@ -5,6 +5,7 @@ import SavedContainer from '../SavedContainer';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
+import Table from 'react-bootstrap/Table';
 
 function Profile({Saved, getList}) {
 	const [ First, setFirst ] = useState("");
@@ -31,11 +32,11 @@ function Profile({Saved, getList}) {
 			<Container>
 				<Row>
 					<Card className="mx-auto p-3 mt-5">
-						<Card.Title>
+						<Card.Title className="profile-title">
 							<h1>Profile</h1>
 						</Card.Title>
 						<Card.Body>
-							<table>
+							<Table>
 								<tbody>
 									<tr>
 										<td>First Name</td>
@@ -50,7 +51,7 @@ function Profile({Saved, getList}) {
 										<td>{Email}</td>
 									</tr>
 								</tbody>
-							</table>
+							</Table>
 						</Card.Body>
 					</Card>
 				</Row>
