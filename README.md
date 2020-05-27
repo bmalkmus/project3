@@ -7,7 +7,7 @@
 ![Screenshot](screenshots/Register.png)<br>
 Register Page<br>
 <br>
-![Screenshot](screenshot/Login.png)<br>
+![Screenshot](screenshots/Login.png)<br>
 Login Page <br><br>
 ![Screenshot](screenshots/Search.png)<br> 
 Search Page <br> <br>
