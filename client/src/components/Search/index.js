@@ -29,6 +29,7 @@ function Search({notifications, setNotifications}) {
     API.productSearchKeyword(formObject.search)
       .then(res => {
         const products = res.data.Data;
+        console.log(products)
         setProducts(products);
       }
     )

@@ -32,8 +32,7 @@ function SavedContainer ({Saved, getList}) {
 						image={product.images}
 						platform={product.platform}
 						price={product.price}
-						shipping={product.shipping}
-						condition={product.condition}
+						link = {product.link}
 						deleteBTN={deleteBTN}
 					/>
 				))}

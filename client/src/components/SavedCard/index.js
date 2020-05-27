@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-function SavedCard({id, image, title, description, platform, price, deleteBTN}) {
+function SavedCard({id, image, title, description, platform, link, price, deleteBTN}) {
 	return (
 		<Container>
 			<Card className="card mx-auto p-3 mt-5" key={id}>
@@ -29,8 +29,7 @@ function SavedCard({id, image, title, description, platform, price, deleteBTN}) 
 										<tr>
 											<th>Website</th>
 											<th>Price</th>
-											{/* <th>Shipping</th>
-											<th>Condition</th> */}
+											<th>Link</th>
 											<th />
 										</tr>
 									</thead>
@@ -40,8 +39,8 @@ function SavedCard({id, image, title, description, platform, price, deleteBTN}) 
 										<tr>
 											<td>{platform}</td>
 											<td>${price}</td>
-											{/* <td>${shipping}</td>
-											<td>{condition}</td> */}
+											<td><a href = {link}>View Website</a></td>
+											
 										</tr>
 									</tbody>	
 								</Table>

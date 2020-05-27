@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
 
-function Profile({Saved, getList}) {
+function Profile({Saved, getList, total}) {
 	const [ First, setFirst ] = useState("");
 	const [ Last, setLast ] = useState("");
 	const [ Email, setEmail ] = useState("");
@@ -49,6 +49,14 @@ function Profile({Saved, getList}) {
 									<tr>
 										<td>Email Address</td>
 										<td>{Email}</td>
+									</tr>
+									<tr>
+										<td>Subtotal </td>
+										<td>${total}</td>
+									</tr>
+									<tr>
+										<td>Total </td>
+										<td>${total * 1.10}</td>
 									</tr>
 								</tbody>
 							</Table>
