@@ -17,6 +17,7 @@ import './App.css';
 function App() {
 	const [ routes, setRoutes ] = useState(false);
 	const [notifications, setNotifications] = useState(0);
+	const [total, setTotal] = useState(0.00)
     const [ Saved, setSaved ] = useState([]);
 	let token;
 	let decoded = {email: "no email"}
@@ -86,13 +87,18 @@ function App() {
 			}
 			const Data = res.data;
 			const Save = []
+			let Total = 0
 			for (let i = 0; i < Data.length; i ++){
 				if (Data[i].user === decoded.email){
-					Save.push(Data[i])	
+					let price = Number(Data[i].price)
+					console.log(Data[i])
+					Save.push(Data[i])
+					Total = Total + price	
 				}
 			}
 			setNotifications(Save.length);
 			setSaved(res.data);
+			setTotal(Total)
 		})
 		.catch(err => console.log(err))
 	};
@@ -125,7 +131,7 @@ function App() {
                           <Login setRoutes = {setRoutes} />
 					</Route>
 					<Route exact path={["/profile"]}>
-						{routes ? <Profile  Saved = {Saved} getList = {getList} /> : <Register />}
+						{routes ? <Profile  total = {total} Saved = {Saved} getList = {getList} /> : <Register />}
 					</Route>
 					<Route exact path={["/search"]}>
 						{routes ? <Search notifications = {notifications} setNotifications = {setNotifications}/> : <Register />}

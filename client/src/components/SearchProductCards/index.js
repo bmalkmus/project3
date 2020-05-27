@@ -17,6 +17,10 @@ class SearchProductCards extends React.Component {
 	createPriceTags = (stores) => {
 		let rows = [];
 		for (let i = 0; i < stores.length; i++) {
+			if (stores[i].price === ""){
+				stores[i].price = "50000000.00";
+				stores[i].currency = "ZWD"
+			}
 			let row = (
 				<tr key={i}>
 					<td>
