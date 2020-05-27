@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
 
-function NavbarComponent({routes, setRoutes, notifications, HasToken, NoToken}) {
+function NavbarComponent({routes, HasToken, NoToken}) {
 
 	return (
 		<Navbar collapseOnSelect expand="md">
@@ -16,7 +16,7 @@ function NavbarComponent({routes, setRoutes, notifications, HasToken, NoToken}) 
 					className="d-inline-block align-top"
 				/>
 			</Navbar.Brand>
-			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
+			<Navbar.Toggle aria-controls="responsive-navbar-nav" id = "navToggle"/>
 			<Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
 				<Nav className="nav-link-components ml-auto">
 					<ul>{routes ? <HasToken /> : <NoToken />}</ul>

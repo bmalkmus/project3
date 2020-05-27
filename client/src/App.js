@@ -95,7 +95,14 @@ function App() {
 			setSaved(res.data);
 		})
 		.catch(err => console.log(err))
-    };
+	};
+	
+	
+    useEffect(() => {
+		if (localStorage.usertoken){
+			setRoutes(true)
+		}
+	}, []);	
 
     useEffect(() => {
 		getList();

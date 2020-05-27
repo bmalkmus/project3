@@ -23,7 +23,12 @@ function Register() {
 
         API.register(user).then(res => {
             if (res) {
-                console.log("Registration successful")
+                console.log("Registration successful");
+                alert("Registration Successful")
+                
+            }
+            else {
+                alert("User Already Exists!")
             }
         })
     }

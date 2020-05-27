@@ -114,7 +114,7 @@ class SearchProductCards extends React.Component {
 										>
 											{this.context.products[i].Stores.map(store => {
 												return (
-												<Dropdown.Item action variant = "dark"
+												<Dropdown.Item variant = "dark"
 													key={store.store_name + i}
 													className="dropdown-item stores"
 													data-title={this.context.products[i].item_attributes.title}
