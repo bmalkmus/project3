@@ -63,7 +63,12 @@ class SearchProductCards extends React.Component {
 			shipping: '99.99',
 			condition: 'broken',
 			datefind: '1979-01-01'
-		}).catch((err) => console.log(err));
+		})
+		.then((res) => {
+			console.log(this.context.setNotifications)
+			this.context.setNotifications(this.context.notifications + 1)
+		})
+		.catch((err) => console.log(err));
 	};
 	createCards = () => {
 		let cols = [];
@@ -112,7 +117,7 @@ class SearchProductCards extends React.Component {
 											{this.context.products[i].Stores.map(store => {
 												return (
 												<Dropdown.Item
-													key={store + i}
+													key={store.store_name + i}
 													className="dropdown-item stores"
 													data-title={this.context.products[i].item_attributes.title}
 													data-upc={this.context.products[i].item_attributes.upc}

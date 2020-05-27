@@ -7,20 +7,12 @@ import API from "../utils/API";
 import DataAreaContext from "../utils/DataAreaContext";
 // import jwt_decode from 'jwt-decode';
 
-function Search() {
+function Search({notifications, setNotifications}) {
   const [products, setProducts] = useState([])
   const [formObject, setFormObject] = useState({
     search: "Face Cream",
   })
 
-  // const token = localStorage.usertoken;
-  // const decoded = jwt_decode(token);
-
-  // save book to DB
-  // function handleSaveProduct(product) {
-  //   console.log(product);
-  //   // TODO: save the product into DB
-  // };
 
   // Handles updating component state when the user types into the input field
   function handleSearchInputChange(event) {
@@ -44,10 +36,9 @@ function Search() {
 
   return (
     <div>
-      {/* <Header page="search" custom="navbar-expand-lg bg-dark" /> */}
       <Main name='Search'>
         <DataAreaContext.Provider
-            value={{ handleSearchSubmit, handleSearchInputChange, formObject, products }}
+            value={{ handleSearchSubmit, handleSearchInputChange, formObject, products, notifications, setNotifications }}
             >
             <SearchProductCards />
         </DataAreaContext.Provider>

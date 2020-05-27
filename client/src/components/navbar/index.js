@@ -3,15 +3,16 @@ import { Link, useHistory } from 'react-router-dom';
 import "./style.css";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import Badge from "react-bootstrap/Badge";
 
-function NavbarComponent(props) {
+function NavbarComponent({routes, setRoutes, notifications}) {
+	
 	const history = useHistory();
-
+	
 	function NoToken() {
-		if (props.routes){
-			props.setRoutes(false);
-
+		if (routes === true){
+			setRoutes(false);
 		}
 		return (
 			<div>
@@ -29,14 +30,17 @@ function NavbarComponent(props) {
 		);
 	}
 	function HasToken() {
-		if (!props.routes){
-			props.setRoutes(true);
+		if (routes === false) {
+			setRoutes(true)
 		}
+
 		return (
 			<div>
 				<li className="SignInLinks">
 					<Link className="link-tag" to="/profile" id = "saved1">
 						Saved List
+						<Badge className = "notification" variant = "light">{notifications}</Badge>
+						<span className="sr-only">Saved Items</span>
 					</Link>
 				</li>
 				<li className="SignInLinks">

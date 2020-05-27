@@ -4,7 +4,7 @@ import API from '../utils/API';
 import SavedCard from '../SavedCard';
 import Container from 'react-bootstrap/Container';
 
-function SavedContainer () {
+function SavedContainer ({setNotifications}) {
     const token = localStorage.usertoken;
 	const decoded = jwt_decode(token);
     const [ Saved, setSaved ] = useState([]);
@@ -12,7 +12,14 @@ function SavedContainer () {
     function getList() {
 		API.UserList()
 		.then((res) => {
-			console.log(res.data);
+			const Data = res.data;
+			const Save = []
+			for (let i = 0; i < Data.length; i ++){
+				if (Data[i].user === decoded.email){
+					Save.push(Data[i])	
+				}
+			}
+			setNotifications(Save.length);
 			setSaved(res.data);
 		})
 		.catch(err => console.log(err))
@@ -27,7 +34,6 @@ function SavedContainer () {
     }
 
     useEffect(() => {
-		console.log("Effected initiated")
 		getList();
 	}, [])	
     

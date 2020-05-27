@@ -10,52 +10,32 @@ import Search from './components/Search';
 import './App.css';
 
 function App() {
-	const [ routes, setRoutes ] = useState();
-
-	// useEffect(() => {
-	// 	if (localStorage.usertoken) {
-	// 		setRoutes(true);
-	// 	} else {
-	// 		setRoutes(false);
-	// 	}
-	// },[routes]);
-
-	function HasToken() {
-
-		return (
-			<div>
-				<Switch>
-					<Route exact path="/" component={Landing} />
-					<Route exact path="/register" component={Register} />
-					<Route exact path="/login" component={Login} />
-					<Route exact path="/profile" component={Profile} />
-					<Route exact path="/search" component={Search} />
-				</Switch>
-			</div>
-		);
-	}
-
-	function NoToken() {
-		return (
-			<div>
-				<Switch>
-					<Route exact path="/" component={Landing} />
-					<Route exact path="/register" component={Register} />
-					<Route exact path="/login" component={Login} />
-					<Route exact path="/profile" component={Register} />
-					<Route exact path="/search" component={Register} />
-				</Switch>
-			</div>
-		);
-	}
+	const [ routes, setRoutes ] = useState(false);
+	const [notifications, setNotifications] = useState(0)
 
 	return (
 		<Router>
 			<div className="main-container">
 				<header>
-					<NavbarComponent setRoutes={setRoutes} routes = {routes} />
+					<NavbarComponent notifications = {notifications} setRoutes={setRoutes} routes = {routes} />
 				</header>
-				{routes ? <HasToken /> : <NoToken />}
+				<Switch>
+					<Route exact path={["/"]}>
+						<Landing/>
+					</Route>
+					<Route exact path={["/register"]}>
+                          <Register/>
+					</Route>
+					<Route exact path={["/login"]}>
+                          <Login/>
+					</Route>
+					<Route exact path={["/profile"]}>
+						{routes ? <Profile setNotifications = {setNotifications} /> : <Register />}
+					</Route>
+					<Route exact path={["/search"]}>
+						{routes ? <Search notifications = {notifications} setNotifications = {setNotifications}/> : <Register />}
+					</Route>
+				</Switch>
 			</div>
 		</Router>
 	);
