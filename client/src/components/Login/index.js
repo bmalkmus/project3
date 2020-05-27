@@ -7,7 +7,7 @@ import "./style.css"
 import {useHistory} from "react-router-dom";
 
 
-function Login() {
+function Login({setRoutes}) {
     const emailRef = useRef();
     const passwordRef = useRef();
     const history = useHistory()
@@ -22,7 +22,8 @@ function Login() {
         API.login(user).then(res => {
             if (res) {
                 history.push('/')
-                console.log("login successful")
+                console.log("login successful");
+                setRoutes(true);
             }
         })
     }

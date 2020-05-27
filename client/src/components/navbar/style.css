@@ -1,4 +1,4 @@
-#register1:hover, #login1:hover, #saved1:hover, #search1:hover {
+#register1:hover, #login1:hover, #saved1:hover, #search1:hover, #logout:hover {
     color: orange;
     text-decoration: none;
 }
