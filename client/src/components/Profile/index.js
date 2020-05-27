@@ -32,7 +32,6 @@ function Profile({Saved, getList, total}) {
 			<Container>
 				<Row>
 					<Accordion defaultActiveKey ="0" className="mx-auto p-3 mt-5 card">
-						<Card className="mx-auto p-3 mt-5">
 							<Accordion.Toggle as={Card.Title} className="profile-title" eventKey="0">
 								<h1>Profile</h1>
 							</Accordion.Toggle>
@@ -64,7 +63,6 @@ function Profile({Saved, getList, total}) {
 									</Table>
 								</Card.Body>
 							</Accordion.Collapse>
-						</Card>
 					</Accordion>
 				</Row>
 			</Container>
