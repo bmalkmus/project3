@@ -23,7 +23,7 @@ function Register() {
 
         API.register(user).then(res => {
             if (res) {
-                console.log("login successful")
+                console.log("Registration successful")
             }
         })
     }

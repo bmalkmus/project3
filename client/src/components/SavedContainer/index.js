@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import jwt_decode from 'jwt-decode';
 import API from '../utils/API';
 import SavedCard from '../SavedCard';
 import Container from 'react-bootstrap/Container';
 
-function SavedContainer () {
+function SavedContainer ({Saved, getList}) {
     const token = localStorage.usertoken;
 	const decoded = jwt_decode(token);
-    const [ Saved, setSaved ] = useState([]);
 
-    function getList() {
-		API.UserList()
-		.then((res) => {
-			console.log(res.data);
-			setSaved(res.data);
-		})
-		.catch(err => console.log(err))
-    };
     
     function deleteBTN(event) {
 		const id = event.target.dataset.id;
@@ -26,10 +17,6 @@ function SavedContainer () {
 		
     }
 
-    useEffect(() => {
-		console.log("Effected initiated")
-		getList();
-	}, [])	
     
 
     return (

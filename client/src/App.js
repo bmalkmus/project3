@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import jwt_decode from 'jwt-decode';
+import API from "./components/utils/API";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavbarComponent from './components/navbar';
 import Landing from './components/Landing';
@@ -10,52 +12,59 @@ import Search from './components/Search';
 import './App.css';
 
 function App() {
-	const [ routes, setRoutes ] = useState();
+	const [ routes, setRoutes ] = useState(false);
+	const [notifications, setNotifications] = useState(0);
+    const [ Saved, setSaved ] = useState([]);
+	let token;
+	let decoded = {email: "no email"}
 
-	// useEffect(() => {
-	// 	if (localStorage.usertoken) {
-	// 		setRoutes(true);
-	// 	} else {
-	// 		setRoutes(false);
-	// 	}
-	// },[routes]);
+    function getList() {
+		API.UserList()
+		.then((res) => {
+			if(localStorage.usertoken){
+				 token = localStorage.usertoken;
+				 decoded = jwt_decode(token);
+			}
+			const Data = res.data;
+			const Save = []
+			for (let i = 0; i < Data.length; i ++){
+				if (Data[i].user === decoded.email){
+					Save.push(Data[i])	
+				}
+			}
+			setNotifications(Save.length);
+			setSaved(res.data);
+		})
+		.catch(err => console.log(err))
+    };
 
-	function HasToken() {
-
-		return (
-			<div>
-				<Switch>
-					<Route exact path="/" component={Landing} />
-					<Route exact path="/register" component={Register} />
-					<Route exact path="/login" component={Login} />
-					<Route exact path="/profile" component={Profile} />
-					<Route exact path="/search" component={Search} />
-				</Switch>
-			</div>
-		);
-	}
-
-	function NoToken() {
-		return (
-			<div>
-				<Switch>
-					<Route exact path="/" component={Landing} />
-					<Route exact path="/register" component={Register} />
-					<Route exact path="/login" component={Login} />
-					<Route exact path="/profile" component={Register} />
-					<Route exact path="/search" component={Register} />
-				</Switch>
-			</div>
-		);
-	}
+    useEffect(() => {
+		getList();
+	}, [routes, notifications])	
 
 	return (
 		<Router>
 			<div className="main-container">
 				<header>
-					<NavbarComponent setRoutes={setRoutes} routes = {routes} />
+					<NavbarComponent notifications = {notifications} setRoutes={setRoutes} routes = {routes} />
 				</header>
-				{routes ? <HasToken /> : <NoToken />}
+				<Switch>
+					<Route exact path={["/"]}>
+						<Landing/>
+					</Route>
+					<Route exact path={["/register"]}>
+                          <Register/>
+					</Route>
+					<Route exact path={["/login"]}>
+                          <Login/>
+					</Route>
+					<Route exact path={["/profile"]}>
+						{routes ? <Profile  Saved = {Saved} getList = {getList} /> : <Register />}
+					</Route>
+					<Route exact path={["/search"]}>
+						{routes ? <Search notifications = {notifications} setNotifications = {setNotifications}/> : <Register />}
+					</Route>
+				</Switch>
 			</div>
 		</Router>
 	);
