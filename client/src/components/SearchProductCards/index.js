@@ -167,6 +167,7 @@ class SearchProductCards extends React.Component {
 									className="mt-3 search-button"
 									onClick={this.context.handleSearchSubmit}
 									variant="dark"
+									type="button"
 								>
 									Search
 								</Button>
