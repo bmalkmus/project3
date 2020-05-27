@@ -22,13 +22,22 @@ function Register() {
         };
 
         API.register(user).then(res => {
-            if (res) {
+            if (res.data.status) {
                 console.log("Registration successful");
-                alert("Registration Successful")
+                alert("Registration Successful");
+                firstRef.current.value = "";
+                lastRef.current.value = "";
+                emailRef.current.value = "";
+                passwordRef.current.value = "";
+
                 
             }
-            else {
-                alert("User Already Exists!")
+            else if(res.data.error === "User already exists!") {
+                alert("Email Already Exists!")
+            }
+
+            else{
+                alert("Please fill in all information correctly")
             }
         })
     }
