@@ -5,6 +5,7 @@ import Main from "../Main";
 import SearchProductCards from "../SearchProductCards";
 import API from "../utils/API";
 import DataAreaContext from "../utils/DataAreaContext";
+import "./styles.css"
 // import jwt_decode from 'jwt-decode';
 
 function Search({notifications, setNotifications}) {

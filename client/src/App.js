@@ -65,7 +65,6 @@ function App() {
 
 				<li className="SignInLinks">
 					<Link onClick = {logOut} className = "link-tag" to= "/" id = "logout">Log Out</Link>
-					{/* <Button onClick={logOut} variant="light">Log out</Button> */}
 				</li>
 			</div>
 		);
