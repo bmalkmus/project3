@@ -29,7 +29,7 @@ function Register() {
     }
     return (
         
-            <Card className = "text-center" id = "card-reg">
+            <Card className = "text-center mt-5" id = "card-reg">
                 <Card.Header id = "reg-head">Please Register</Card.Header>
                 <Card.Body>
                     <Form>

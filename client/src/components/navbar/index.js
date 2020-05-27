@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 function NavbarComponent({routes, setRoutes, notifications, HasToken, NoToken}) {
 
 	return (
-		<Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+		<Navbar collapseOnSelect expand="md">
 			<Navbar.Brand className="Brand">
 				<img src={process.env.PUBLIC_URL + '/Brand.png'} 
 					width="400" 

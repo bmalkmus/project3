@@ -14,7 +14,7 @@ function Landing() {
 				<div>
 					<Container>
 						<Row>
-							<Card className="mx-auto p-3 mt-5" >
+							<Card className="mx-auto p-3 mt-5 welcome-container" >
 								<Card.Title>
 									<h1>WELCOME</h1>
 								</Card.Title>

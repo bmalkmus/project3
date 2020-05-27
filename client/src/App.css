@@ -46,6 +46,8 @@
   background: #121212;
   color: #fff;
   text-align: center;
+  opacity: 92%;
+  box-shadow: 0px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
 }
 
 header h1 {
@@ -82,6 +84,8 @@ ul {
   background: #121212;
   color: #fff;
   text-align: center;
+  opacity: 92%;
+  box-shadow: 5px 8px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
 }
 
 footer h1 {
@@ -118,6 +122,7 @@ h5 {
   width: 100%;
   text-align: center;
   align-self: center;
+  box-shadow: 0px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
 }
 
 .table {
@@ -126,3 +131,29 @@ h5 {
   align-content: center;
 }
 
+.welcome-container {
+  background: linear-gradient(60deg, #ffa500, #ffd64a);
+  color: #000000;
+  box-shadow: 0px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
+}
+
+.profile-title {
+  background: linear-gradient(60deg, #ffa500, #ffd64a);
+  color: #000000;
+  box-shadow: 0px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
+}
+
+.btn {
+  background: #ffa500 !important;
+  color: #000000 !important;
+  border-color: rgb(216, 167, 10) !important;
+  font-weight: 300 !important;
+}
+
+.btn:hover{
+  box-shadow: 0 14px 26px -12px rgba(208,126,29, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(208,126,29, 0.2) !important;
+}
+
+/* .btn, .btn:hover, .btn:active, .btn:visited {
+  background-color: #8064A2 !important;
+} */
