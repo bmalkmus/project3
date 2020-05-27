@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import jwt_decode from 'jwt-decode';
+import API from "./components/utils/API";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavbarComponent from './components/navbar';
 import Landing from './components/Landing';
@@ -11,7 +13,34 @@ import './App.css';
 
 function App() {
 	const [ routes, setRoutes ] = useState(false);
-	const [notifications, setNotifications] = useState(0)
+	const [notifications, setNotifications] = useState(0);
+    const [ Saved, setSaved ] = useState([]);
+	let token;
+	let decoded = {email: "no email"}
+
+    function getList() {
+		API.UserList()
+		.then((res) => {
+			if(localStorage.usertoken){
+				 token = localStorage.usertoken;
+				 decoded = jwt_decode(token);
+			}
+			const Data = res.data;
+			const Save = []
+			for (let i = 0; i < Data.length; i ++){
+				if (Data[i].user === decoded.email){
+					Save.push(Data[i])	
+				}
+			}
+			setNotifications(Save.length);
+			setSaved(res.data);
+		})
+		.catch(err => console.log(err))
+    };
+
+    useEffect(() => {
+		getList();
+	}, [routes, notifications])	
 
 	return (
 		<Router>
@@ -30,7 +59,7 @@ function App() {
                           <Login/>
 					</Route>
 					<Route exact path={["/profile"]}>
-						{routes ? <Profile setNotifications = {setNotifications} /> : <Register />}
+						{routes ? <Profile  Saved = {Saved} getList = {getList} /> : <Register />}
 					</Route>
 					<Route exact path={["/search"]}>
 						{routes ? <Search notifications = {notifications} setNotifications = {setNotifications}/> : <Register />}

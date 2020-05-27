@@ -65,7 +65,6 @@ class SearchProductCards extends React.Component {
 			datefind: '1979-01-01'
 		})
 		.then((res) => {
-			console.log(this.context.setNotifications)
 			this.context.setNotifications(this.context.notifications + 1)
 		})
 		.catch((err) => console.log(err));

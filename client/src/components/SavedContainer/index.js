@@ -1,29 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import jwt_decode from 'jwt-decode';
 import API from '../utils/API';
 import SavedCard from '../SavedCard';
 import Container from 'react-bootstrap/Container';
 
-function SavedContainer ({setNotifications}) {
+function SavedContainer ({Saved, getList}) {
     const token = localStorage.usertoken;
 	const decoded = jwt_decode(token);
-    const [ Saved, setSaved ] = useState([]);
 
-    function getList() {
-		API.UserList()
-		.then((res) => {
-			const Data = res.data;
-			const Save = []
-			for (let i = 0; i < Data.length; i ++){
-				if (Data[i].user === decoded.email){
-					Save.push(Data[i])	
-				}
-			}
-			setNotifications(Save.length);
-			setSaved(res.data);
-		})
-		.catch(err => console.log(err))
-    };
     
     function deleteBTN(event) {
 		const id = event.target.dataset.id;
@@ -33,9 +17,6 @@ function SavedContainer ({setNotifications}) {
 		
     }
 
-    useEffect(() => {
-		getList();
-	}, [])	
     
 
     return (

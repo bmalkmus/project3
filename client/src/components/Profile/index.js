@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 
-function Profile({setNotifications}) {
+function Profile({Saved, getList}) {
 	const [ First, setFirst ] = useState("");
 	const [ Last, setLast ] = useState("");
 	const [ Email, setEmail ] = useState("");
@@ -62,7 +62,7 @@ function Profile({setNotifications}) {
                     </Card.Title>
                 </Card>
             </Container>
-			<SavedContainer setNotifications = {setNotifications}/>
+			<SavedContainer Saved = {Saved} getList = {getList}/>
 		</div>
 	);
 }
