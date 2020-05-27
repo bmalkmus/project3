@@ -49,19 +49,19 @@ function Register() {
                     <Form>
                         <Form.Group className = "text-left formReg" id = "RegFirst">
                             <Form.Label>First Name:</Form.Label>
-                            <Form.Control  id = "firstForm" type = "text" ref = {firstRef}/> 
+                            <Form.Control className="firstForm" id = "firstForm" type = "text" ref = {firstRef}/> 
                         </Form.Group>
                         <Form.Group className = "text-left formReg" id = "RegLast">
                             <Form.Label>Last Name:</Form.Label>
-                            <Form.Control id = "lastForm" type = "text" ref = {lastRef}/> 
+                            <Form.Control className="lastForm" id = "lastForm" type = "text" ref = {lastRef}/> 
                         </Form.Group>
                         <Form.Group className = "text-left formReg" id = "RegEmail">
                             <Form.Label>Email Address:</Form.Label>
-                            <Form.Control id = "emailForm" type = "email" ref = {emailRef}/> 
+                            <Form.Control className="emailForm" id = "emailForm" type = "email" ref = {emailRef}/> 
                         </Form.Group>
                         <Form.Group className = "text-left formReg" id = "RegPass">
                             <Form.Label>Password:</Form.Label>
-                            <Form.Control id = "passForm" type = "password" ref = {passwordRef}/> 
+                            <Form.Control className="passForm" id = "passForm" type = "password" ref = {passwordRef}/> 
                         </Form.Group>
                         <Button type = "submit" id = "btn-reg" onClick = {Submit}>Register</Button>
                     </Form>

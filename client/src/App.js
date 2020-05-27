@@ -117,7 +117,7 @@ function App() {
 	return (
 		<Router>
 			<div className="main-container">
-				<header id="navbar-header">
+				<header>
 					<NavbarComponent HasToken = {HasToken} NoToken = {NoToken} notifications = {notifications} routes = {routes}/>
 				</header>
 				<Switch>
