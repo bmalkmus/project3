@@ -10,6 +10,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Table from 'react-bootstrap/Table';
 
 class SearchProductCards extends React.Component {
 	static contextType = DataAreaContext;
@@ -17,9 +18,9 @@ class SearchProductCards extends React.Component {
 	createPriceTags = (stores) => {
 		let rows = [];
 		for (let i = 0; i < stores.length; i++) {
-			if (stores[i].price === ""){
-				stores[i].price = "50000000.00";
-				stores[i].currency = "ZWD"
+			if (stores[i].price === '') {
+				stores[i].price = '50000000.00';
+				stores[i].currency = 'ZWD';
 			}
 			let row = (
 				<tr key={i}>
@@ -38,7 +39,7 @@ class SearchProductCards extends React.Component {
 			rows.push(row);
 		}
 		return (
-			<table className="responsive-table highlight">
+			<Table className="responsive-table highlight">
 				<thead>
 					<tr>
 						<th>Website</th>
@@ -46,7 +47,7 @@ class SearchProductCards extends React.Component {
 					</tr>
 				</thead>
 				<tbody>{rows}</tbody>
-			</table>
+			</Table>
 		);
 	};
 
@@ -67,21 +68,19 @@ class SearchProductCards extends React.Component {
 			condition: 'broken',
 			datefind: '1979-01-01'
 		})
-		.then((res) => {
-			this.context.setNotifications(this.context.notifications + 1)
-		})
-		.catch((err) => console.log(err));
+			.then((res) => {
+				this.context.setNotifications(this.context.notifications + 1);
+			})
+			.catch((err) => console.log(err));
 	};
 	createCards = () => {
 		let cols = [];
 
 		// Outer loop to create parent
 		for (let i = 0; i < this.context.products.length; i++) {
-		
-
 			let card = (
-				<Container key = {"container" + i}>
-					<Card className="card mx-auto p-3 mt-5" key={"search" + i}>
+				<Container key={'container' + i}>
+					<Card className="card mx-auto p-3 mt-5" key={'search' + i}>
 						<Row className="no-gutters">
 							<Col className="md-4">
 								<img
@@ -92,19 +91,18 @@ class SearchProductCards extends React.Component {
 							</Col>
 							<Col>
 								<Card.Body>
-									<Card.Title>
-										{this.context.products[i].item_attributes.title}
-									</Card.Title>
+									<Card.Title>{this.context.products[i].item_attributes.title}</Card.Title>
 									<Card.Text className="category">
-											{this.context.products[i].item_attributes.description}
+										{this.context.products[i].item_attributes.description}
 									</Card.Text>
 								</Card.Body>
 							</Col>
-							<Card.Footer>
-								<Row>
-									<Dropdown>
+							<Col>
+								<Row className="sm-6">{this.createPriceTags(this.context.products[i].Stores)}</Row>
+								<Row className="sm-6">
+									<Dropdown className="btn-dropdown align-center">
 										<Dropdown.Toggle
-											className="btn btn-toggle m-1 dropdown-toggle"
+											className="btn-dropdown btn btn-toggle m-1 dropdown-toggle"
 											variant="warning"
 											id="dropdown-basic"
 										>
@@ -115,30 +113,31 @@ class SearchProductCards extends React.Component {
 											className="dropdown-menu"
 											id={this.context.products[i].item_attributes.title}
 										>
-											{this.context.products[i].Stores.map(store => {
+											{this.context.products[i].Stores.map((store) => {
 												return (
-												<Dropdown.Item variant = "dark"
-													key={store.store_name + i}
-													className="dropdown-item stores"
-													data-title={this.context.products[i].item_attributes.title}
-													data-upc={this.context.products[i].item_attributes.upc}
-													data-description={this.context.products[i].item_attributes.description}
-													data-image={store.image}
-													data-platform={store.store_name}
-													data-link={store.link}
-													data-price={store.price}
-													onClick={this.handleSaveProduct}
-												>
+													<Dropdown.Item
+														variant="dark"
+														key={store.store_name + i}
+														className="dropdown-item stores"
+														data-title={this.context.products[i].item_attributes.title}
+														data-upc={this.context.products[i].item_attributes.upc}
+														data-description={
+															this.context.products[i].item_attributes.description
+														}
+														data-image={store.image}
+														data-platform={store.store_name}
+														data-link={store.link}
+														data-price={store.price}
+														onClick={this.handleSaveProduct}
+													>
 														{store.store_name}
-												</Dropdown.Item>
-												)
+													</Dropdown.Item>
+												);
 											})}
 										</Dropdown.Menu>
 									</Dropdown>
 								</Row>
-								<Row />
-								<Row>{this.createPriceTags(this.context.products[i].Stores)}</Row>
-							</Card.Footer>
+							</Col>
 						</Row>
 					</Card>
 				</Container>

@@ -5,7 +5,7 @@
     margin-top: 15px;
     color: rgb(69,74,80);
     font-weight: bolder;
-    background-color: rgb(225,226,225);
+    background-color: #fff;
     box-shadow: lightslategray 4px 4px 5px, lightsteelblue 4px 4px 20px, black 4px 4px 10px;
 }
 
@@ -19,7 +19,7 @@
     border: none;
     border-bottom: rgb(69,74,80) solid 2px;
     border-radius: 0px;
-    background-color: rgb(225,226,225);
+    background-color: #fff;
 }
 
 #firstForm:focus, #lastForm:focus, #emailForm:focus, #passForm:focus {

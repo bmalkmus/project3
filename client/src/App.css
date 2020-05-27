@@ -42,6 +42,9 @@
   position: relative;
  }
 
+ .main-container {
+  background: linear-gradient(180deg, #bdbdbd, #fff);
+ }
 
  header {
   background: #121212;
@@ -85,7 +88,6 @@ ul {
   background: #121212;
   color: #fff;
   text-align: center;
-  opacity: 92%;
   box-shadow: 5px 8px 5px 8px rgb(69,74,80), 0px 3px 3px rgba(0, 0, 0, 0.12);
 }
 
@@ -159,6 +161,10 @@ h5 {
   box-shadow: 0 14px 26px -12px rgba(208,126,29, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(208,126,29, 0.2) !important;
 }
 
-/* .btn, .btn:hover, .btn:active, .btn:visited {
-  background-color: #8064A2 !important;
-} */
+.btn-dropdown {
+  align-content: center;
+}
+
+.notification {
+  margin-left: 0.56em;
+}
