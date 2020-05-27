@@ -104,7 +104,6 @@ class SearchProductCards extends React.Component {
 								<Row>
 									<Dropdown>
 										<Dropdown.Toggle
-											// href="#top"
 											className="btn btn-toggle m-1 dropdown-toggle"
 											variant="warning"
 											id="dropdown-basic"
