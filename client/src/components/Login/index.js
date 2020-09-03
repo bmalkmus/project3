@@ -21,10 +21,9 @@ function Login({setRoutes}) {
 
         API.login(user).then(res => {
             if (res) {
-                console.log(res)
-                history.push('/')
                 console.log("login successful");
                 setRoutes(true);
+                history.push('/')
             }
 
             else {

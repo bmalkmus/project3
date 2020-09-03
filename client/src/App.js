@@ -9,6 +9,9 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import Register from './components/Register';
 import Search from './components/Search';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 // import Button from 'react-bootstrap/Button';
 import Badge from "react-bootstrap/Badge";
 
@@ -16,7 +19,7 @@ import './App.css';
 
 function App() {
 	const [ routes, setRoutes ] = useState(false);
-	const [notifications, setNotifications] = useState(0);
+	const [badges, setBadges] = useState(0);
 	const [total, setTotal] = useState(0.00)
     const [ Saved, setSaved ] = useState([]);
 	let token;
@@ -54,7 +57,7 @@ function App() {
 				<li className="SignInLinks">
 					<Link className="link-tag" to="/profile" id = "saved1">
 						Saved List
-						<Badge className = "notification" variant = "light">{notifications}</Badge>
+						<Badge className = "notification" variant = "light">{badges}</Badge>
 						<span className="sr-only">Saved Items</span>
 					</Link>
 				</li>
@@ -73,9 +76,50 @@ function App() {
 
 	function logOut(event) {
 		event.preventDefault();
-		console.log("logout click");
 		localStorage.removeItem('usertoken');
 		setRoutes(false)
+	}
+
+	function landingTrue() {
+		return (
+			<div>
+				<div>
+					<div>
+						<Container>
+							<Row>
+								<Card className="mx-auto p-3 mt-5 welcome-container" >
+									<Card.Title>
+										<h1>WELCOME</h1>
+									</Card.Title>
+								</Card>
+							</Row>
+						</Container>
+					</div>
+				</div>
+				 <Search />
+			</div>
+		);
+	}
+
+	function landingFalse() {
+		return (
+			<div>
+				<div>
+					<div>
+						<Container>
+							<Row>
+								<Card className="mx-auto p-3 mt-5 welcome-container" >
+									<Card.Title>
+										<h1>WELCOME</h1>
+									</Card.Title>
+								</Card>
+							</Row>
+						</Container>
+					</div>
+				</div>
+				<Register />
+			</div>
+		);
 	}
 
     function getList() {
@@ -91,12 +135,11 @@ function App() {
 			for (let i = 0; i < Data.length; i ++){
 				if (Data[i].user === decoded.email){
 					let price = Number(Data[i].price)
-					console.log(Data[i])
 					Save.push(Data[i])
 					Total = Total + price	
 				}
 			}
-			setNotifications(Save.length);
+			setBadges(Save.length);
 			setSaved(res.data);
 			setTotal(Total)
 		})
@@ -112,17 +155,18 @@ function App() {
 
     useEffect(() => {
 		getList();
-	}, [routes, notifications])	
+	}, [routes, badges])	
+
 
 	return (
 		<Router>
 			<div className="main-container">
 				<header id="navbar-header">
-					<NavbarComponent HasToken = {HasToken} NoToken = {NoToken} notifications = {notifications} routes = {routes}/>
+					<NavbarComponent HasToken = {HasToken} NoToken = {NoToken} badges = {badges} routes = {routes}/>
 				</header>
 				<Switch>
 					<Route exact path={["/"]}>
-						<Landing/>
+					 	<Landing routes = {routes} LandingTrue = {landingTrue} LandingFalse = {landingFalse}/>
 					</Route>
 					<Route exact path={["/register"]}>
                           <Register/>
@@ -134,7 +178,7 @@ function App() {
 						{routes ? <Profile  total = {total} Saved = {Saved} getList = {getList} /> : <Register />}
 					</Route>
 					<Route exact path={["/search"]}>
-						{routes ? <Search notifications = {notifications} setNotifications = {setNotifications}/> : <Register />}
+						{routes ? <Search getList = {getList}/> : <Register />}
 					</Route>
 				</Switch>
 			</div>
