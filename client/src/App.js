@@ -161,8 +161,8 @@ function App() {
 	return (
 		<Router>
 			<div className="main-container">
-				<header id="navbar-header">
-					<NavbarComponent HasToken = {HasToken} NoToken = {NoToken} badges = {badges} routes = {routes}/>
+				<header>
+					<NavbarComponent HasToken = {HasToken} NoToken = {NoToken} notifications = {notifications} routes = {routes}/>
 				</header>
 				<Switch>
 					<Route exact path={["/"]}>
