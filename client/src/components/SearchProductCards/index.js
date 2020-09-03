@@ -1,5 +1,4 @@
 import React from 'react';
-import DataAreaContext from '../utils/DataAreaContext';
 import jwt_decode from 'jwt-decode';
 import API from '../utils/API';
 import Row from 'react-bootstrap/Row';
@@ -12,10 +11,8 @@ import Col from 'react-bootstrap/Col';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Table from 'react-bootstrap/Table';
 
-class SearchProductCards extends React.Component {
-	static contextType = DataAreaContext;
-
-	createPriceTags = (stores) => {
+function SearchProductCards ({handleSearchSubmit, handleSearchInputChange, formObject, products, getList}) {
+	function createPriceTags (stores) {
 		let rows = [];
 		for (let i = 0; i < stores.length; i++) {
 			if (stores[i].price === '') {
@@ -51,7 +48,7 @@ class SearchProductCards extends React.Component {
 		);
 	};
 
-	handleSaveProduct = (event) => {
+	function handleSaveProduct (event) {
 		const token = localStorage.usertoken;
 		const decoded = jwt_decode(token);
 
@@ -69,36 +66,37 @@ class SearchProductCards extends React.Component {
 			datefind: '1979-01-01'
 		})
 			.then((res) => {
-				this.context.setNotifications(this.context.notifications + 1);
+				console.log(res)
+				getList()
 			})
 			.catch((err) => console.log(err));
 	};
-	createCards = () => {
+	function createCards () {
 		let cols = [];
 
 		// Outer loop to create parent
-		for (let i = 0; i < this.context.products.length; i++) {
+		for (let i = 0; i < products.length; i++) {
 			let card = (
 				<Container key={'container' + i}>
 					<Card className="card mx-auto p-3 mt-5" key={'search' + i}>
 						<Row className="no-gutters">
 							<Col className="md-4">
 								<img
-									src={this.context.products[i].item_attributes.image}
+									src={products[i].item_attributes.image}
 									className="img-fluid"
 									alt="Responsive"
 								/>
 							</Col>
 							<Col>
 								<Card.Body>
-									<Card.Title>{this.context.products[i].item_attributes.title}</Card.Title>
+									<Card.Title>{products[i].item_attributes.title}</Card.Title>
 									<Card.Text className="category">
-										{this.context.products[i].item_attributes.description}
+										{products[i].item_attributes.description}
 									</Card.Text>
 								</Card.Body>
 							</Col>
 							<Col>
-								<Row className="sm-6">{this.createPriceTags(this.context.products[i].Stores)}</Row>
+								<Row className="sm-6">{createPriceTags(products[i].Stores)}</Row>
 								<Row className="sm-6">
 									<Dropdown className="btn-dropdown align-center">
 										<Dropdown.Toggle
@@ -111,24 +109,24 @@ class SearchProductCards extends React.Component {
 
 										<Dropdown.Menu
 											className="dropdown-menu"
-											id={this.context.products[i].item_attributes.title}
+											id={products[i].item_attributes.title}
 										>
-											{this.context.products[i].Stores.map((store) => {
+											{products[i].Stores.map((store) => {
 												return (
 													<Dropdown.Item
 														variant="dark"
 														key={store.store_name + i}
 														className="dropdown-item stores"
-														data-title={this.context.products[i].item_attributes.title}
-														data-upc={this.context.products[i].item_attributes.upc}
+														data-title={products[i].item_attributes.title}
+														data-upc={products[i].item_attributes.upc}
 														data-description={
-															this.context.products[i].item_attributes.description
+															products[i].item_attributes.description
 														}
 														data-image={store.image}
 														data-platform={store.store_name}
 														data-link={store.link}
 														data-price={store.price}
-														onClick={this.handleSaveProduct}
+														onClick={handleSaveProduct}
 													>
 														{store.store_name}
 													</Dropdown.Item>
@@ -147,8 +145,8 @@ class SearchProductCards extends React.Component {
 		}
 		return cols;
 	};
+	
 
-	render() {
 		return (
 			<div>
 				<Row>
@@ -159,15 +157,15 @@ class SearchProductCards extends React.Component {
 							</label>
 							<Form className="search-form-control p-5">
 								<FormControl
-									onChange={this.context.handleSearchInputChange}
+									onChange={handleSearchInputChange}
 									name="search"
-									placeholder={this.context.formObject.search}
+									placeholder= {formObject.search}
 									className="mr-sm-2"
 								/>
 								<Button
 									href="#top"
 									className="mt-3 search-button"
-									onClick={this.context.handleSearchSubmit}
+									onClick={handleSearchSubmit}
 									variant="dark"
 									type="button"
 								>
@@ -177,10 +175,9 @@ class SearchProductCards extends React.Component {
 						</div>
 					</Card>
 				</Row>
-				<Row>{this.createCards()}</Row>
+				<Row>{createCards()}</Row>
 			</div>
 		);
 	}
-}
 
 export default SearchProductCards;

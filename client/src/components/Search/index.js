@@ -4,11 +4,10 @@ import Footer from "../Footer";
 import Main from "../Main";
 import SearchProductCards from "../SearchProductCards";
 import API from "../utils/API";
-import DataAreaContext from "../utils/DataAreaContext";
 import "./styles.css"
 // import jwt_decode from 'jwt-decode';
 
-function Search({notifications, setNotifications}) {
+function Search({getList}) {
   const [products, setProducts] = useState([])
   const [formObject, setFormObject] = useState({
     search: "Face Cream",
@@ -25,25 +24,29 @@ function Search({notifications, setNotifications}) {
   function handleSearchSubmit(event) {
     console.log("click");
     event.preventDefault();
-    console.log(formObject.search);
     API.productSearchKeyword(formObject.search)
       .then(res => {
         const products = res.data.Data;
-        console.log(products)
         setProducts(products);
       }
     )
     .catch(err => console.log(err));
   };
 
+  
+
   return (
     <div>
       <Main name='Search'>
-        <DataAreaContext.Provider
-            value={{ handleSearchSubmit, handleSearchInputChange, formObject, products, notifications, setNotifications }}
-            >
-            <SearchProductCards />
-        </DataAreaContext.Provider>
+             
+            
+            <SearchProductCards
+             handleSearchSubmit = {handleSearchSubmit}
+             handleSearchInputChange = {handleSearchInputChange}
+             formObject = {formObject}
+             products = {products}
+             getList = {getList}
+             />
       </Main>
       <Footer />
     </div>
